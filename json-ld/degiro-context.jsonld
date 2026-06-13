@@ -1,0 +1,149 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "degiro": "https://trader.degiro.nl/schemas/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+
+    "Session": {
+      "@id": "degiro:Session",
+      "@context": {
+        "sessionId": "degiro:sessionId",
+        "intAccount": "degiro:intAccount",
+        "status": "degiro:sessionStatus",
+        "statusText": "degiro:sessionStatusText",
+        "locale": "schema:inLanguage",
+        "isPassCodeEnabled": {
+          "@id": "degiro:isPassCodeEnabled",
+          "@type": "xsd:boolean"
+        },
+        "redirectUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Order": {
+      "@id": "degiro:Order",
+      "@context": {
+        "buySell": "degiro:orderDirection",
+        "orderType": "degiro:orderType",
+        "productId": "degiro:productId",
+        "size": {
+          "@id": "degiro:orderSize",
+          "@type": "xsd:decimal"
+        },
+        "price": {
+          "@id": "schema:price",
+          "@type": "xsd:decimal"
+        },
+        "stopPrice": {
+          "@id": "degiro:stopPrice",
+          "@type": "xsd:decimal"
+        },
+        "timeType": "degiro:timeInForce",
+        "confirmationId": "degiro:confirmationId"
+      }
+    },
+
+    "Position": {
+      "@id": "degiro:Position",
+      "@context": {
+        "id": "degiro:productId",
+        "positionType": "degiro:positionType",
+        "size": {
+          "@id": "degiro:holdingSize",
+          "@type": "xsd:decimal"
+        },
+        "price": {
+          "@id": "schema:price",
+          "@type": "xsd:decimal"
+        },
+        "value": {
+          "@id": "schema:value",
+          "@type": "xsd:decimal"
+        },
+        "breakEvenPrice": {
+          "@id": "degiro:breakEvenPrice",
+          "@type": "xsd:decimal"
+        },
+        "plBase": "degiro:unrealisedPnl",
+        "todayPlBase": "degiro:todayPnl"
+      }
+    },
+
+    "Product": {
+      "@id": "degiro:Product",
+      "@context": {
+        "id": "degiro:productId",
+        "name": "schema:name",
+        "isin": "fibo:hasISIN",
+        "symbol": "degiro:tickerSymbol",
+        "productType": "degiro:assetClass",
+        "currency": "schema:priceCurrency",
+        "exchangeId": "degiro:exchangeId",
+        "tradable": {
+          "@id": "degiro:tradable",
+          "@type": "xsd:boolean"
+        },
+        "closePrice": {
+          "@id": "degiro:closePrice",
+          "@type": "xsd:decimal"
+        },
+        "closePriceDate": {
+          "@id": "degiro:closePriceDate",
+          "@type": "xsd:date"
+        },
+        "contractSize": {
+          "@id": "degiro:contractSize",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "QuotecastSubscription": {
+      "@id": "degiro:QuotecastSubscription",
+      "@context": {
+        "vwdId": "degiro:vwdId",
+        "issueId": "degiro:issueId",
+        "metric": "degiro:quoteMetric",
+        "lastPrice": {
+          "@id": "schema:price",
+          "@type": "xsd:decimal"
+        },
+        "bidPrice": {
+          "@id": "degiro:bidPrice",
+          "@type": "xsd:decimal"
+        },
+        "askPrice": {
+          "@id": "degiro:askPrice",
+          "@type": "xsd:decimal"
+        },
+        "volume": {
+          "@id": "degiro:tradeVolume",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "AccountReport": {
+      "@id": "degiro:AccountReport",
+      "@context": {
+        "intAccount": "degiro:intAccount",
+        "fromDate": {
+          "@id": "dcterms:temporal",
+          "@type": "xsd:date"
+        },
+        "toDate": {
+          "@id": "dcterms:temporal",
+          "@type": "xsd:date"
+        },
+        "format": "degiro:reportFormat",
+        "reportType": "degiro:reportType"
+      }
+    }
+  }
+}

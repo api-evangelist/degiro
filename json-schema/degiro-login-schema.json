@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trader.degiro.nl/schemas/degiro/login.json",
+  "title": "DEGIRO Login",
+  "description": "Represents a DEGIRO session login request and the resulting authenticated session.",
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "description": "DEGIRO account username (email address)"
+    },
+    "password": {
+      "type": "string",
+      "description": "DEGIRO account password"
+    },
+    "isPassCodeReset": {
+      "type": "boolean",
+      "description": "Whether this login resets the passcode"
+    },
+    "isRedirectToMobile": {
+      "type": "boolean",
+      "description": "Whether to redirect to the mobile trading application after login"
+    },
+    "queryParams": {
+      "type": "object",
+      "description": "Optional additional query parameters passed through to the login redirect"
+    }
+  },
+  "required": ["username", "password"]
+}

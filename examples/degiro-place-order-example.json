@@ -1,0 +1,44 @@
+{
+  "operation": "placeOrder",
+  "api": "DEGIRO Trading API",
+  "description": "Place a LIMIT BUY order for 10 shares of a stock at EUR 42.50, valid for the trading day.",
+  "request": {
+    "method": "POST",
+    "url": "https://trader.degiro.nl/trading/secure/v5/order;jsessionid=ABCDEF1234567890ABCDEF1234567890.prod_b_112_2",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "queryParams": {
+      "intAccount": "12345678",
+      "sessionId": "ABCDEF1234567890ABCDEF1234567890.prod_b_112_2"
+    },
+    "body": {
+      "buySell": "BUY",
+      "orderType": 0,
+      "productId": 332111,
+      "size": 10,
+      "price": 42.50,
+      "timeType": 1
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": {
+        "confirmationId": "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+        "transactionFees": [
+          {
+            "id": 2,
+            "amount": 0.0,
+            "currency": "EUR"
+          }
+        ],
+        "transactionOppositeFees": [],
+        "transactionTaxes": []
+      }
+    }
+  }
+}

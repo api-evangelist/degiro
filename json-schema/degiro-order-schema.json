@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trader.degiro.nl/schemas/degiro/order.json",
+  "title": "DEGIRO Order",
+  "description": "Represents a trading order on the DEGIRO platform, covering creation of LIMIT, MARKET, STOP_LOSS, and STOP_LOSS_LIMIT order types.",
+  "type": "object",
+  "properties": {
+    "buySell": {
+      "type": "string",
+      "enum": ["BUY", "SELL"],
+      "description": "Direction of the order"
+    },
+    "orderType": {
+      "type": "integer",
+      "description": "Numeric code for the order type: 0=LIMIT, 2=MARKET, 3=STOP_LOSS, 1=STOP_LOSS_LIMIT"
+    },
+    "price": {
+      "type": "number",
+      "description": "Limit price for LIMIT and STOP_LOSS_LIMIT orders"
+    },
+    "stopPrice": {
+      "type": "number",
+      "description": "Trigger price for STOP_LOSS and STOP_LOSS_LIMIT orders"
+    },
+    "productId": {
+      "type": "integer",
+      "description": "DEGIRO product identifier for the instrument to be traded"
+    },
+    "size": {
+      "type": "number",
+      "description": "Quantity of the instrument to buy or sell"
+    },
+    "timeType": {
+      "type": "integer",
+      "description": "Time-in-force: 1=Day order, 3=Good-till-cancelled"
+    }
+  },
+  "required": ["buySell", "orderType", "productId", "size", "timeType"]
+}

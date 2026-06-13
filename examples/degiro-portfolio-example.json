@@ -1,0 +1,56 @@
+{
+  "operation": "getPortfolio",
+  "api": "DEGIRO Trading API",
+  "description": "Retrieve current portfolio positions and cash fund balances for an authenticated account.",
+  "request": {
+    "method": "GET",
+    "url": "https://trader.degiro.nl/trading/secure/v5/update/12345678;jsessionid=ABCDEF1234567890ABCDEF1234567890.prod_b_112_2",
+    "queryParams": {
+      "portfolio": 0,
+      "intAccount": "12345678",
+      "sessionId": "ABCDEF1234567890ABCDEF1234567890.prod_b_112_2"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "portfolio": {
+        "lastUpdated": 1718186400000,
+        "value": [
+          {
+            "id": 332111,
+            "positionType": "PRODUCT",
+            "size": 10,
+            "price": 189.30,
+            "value": 1893.00,
+            "breakEvenPrice": 185.00,
+            "plBase": {
+              "EUR": 38.34
+            },
+            "todayPlBase": {
+              "EUR": 5.20
+            },
+            "portfolioValueCorrection": 0
+          },
+          {
+            "id": 0,
+            "positionType": "CASH",
+            "size": 2547.83,
+            "price": 1.0,
+            "value": 2547.83,
+            "plBase": {
+              "EUR": 0
+            },
+            "todayPlBase": {
+              "EUR": 0
+            },
+            "portfolioValueCorrection": 0
+          }
+        ]
+      }
+    }
+  }
+}

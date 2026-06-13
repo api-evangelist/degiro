@@ -1,0 +1,32 @@
+{
+  "operation": "login",
+  "api": "DEGIRO Trading API",
+  "description": "Authenticate with DEGIRO to obtain a session ID for subsequent API calls.",
+  "request": {
+    "method": "POST",
+    "url": "https://trader.degiro.nl/login/secure/login",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "username": "john.doe@example.com",
+      "password": "s3cr3tP@ssword",
+      "isPassCodeReset": false,
+      "isRedirectToMobile": false
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": 0,
+      "statusText": "success",
+      "sessionId": "ABCDEF1234567890ABCDEF1234567890.prod_b_112_2",
+      "redirectUrl": "https://trader.degiro.nl/trader/",
+      "locale": "en_GB",
+      "isPassCodeEnabled": false
+    }
+  }
+}

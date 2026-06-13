@@ -1,0 +1,192 @@
+vocabulary:
+  name: DEGIRO
+  description: >-
+    Vocabulary and taxonomy for the DEGIRO European discount brokerage platform
+    covering trading, portfolio management, product search, real-time market data,
+    account reporting, and company intelligence.
+  version: '1.0'
+  created: '2026-06-13'
+  modified: '2026-06-13'
+
+domains:
+  - name: Authentication
+    description: Session-based identity and access management concepts
+    terms:
+      - name: Session ID
+        definition: >-
+          An opaque token returned after successful login, passed as a query parameter
+          (sessionId) to authenticate all subsequent DEGIRO API requests.
+      - name: Int Account
+        definition: >-
+          The integer-based internal account identifier (intAccount) assigned to each
+          DEGIRO trading account, required alongside the session ID for most API calls.
+      - name: Two-Factor Authentication
+        definition: >-
+          An optional additional login step requiring a one-time passcode (TOTP or SMS)
+          to complete authentication when isPassCodeEnabled is true.
+      - name: jsessionid
+        definition: >-
+          Java EE session cookie embedded in certain DEGIRO trading endpoint path
+          segments (e.g. ;jsessionid=<value>) as an alternative session binding mechanism.
+
+  - name: Trading
+    description: Order creation, management, and execution concepts
+    terms:
+      - name: Order
+        definition: >-
+          An instruction submitted to a trading venue to buy or sell a financial
+          instrument at a specified price and quantity.
+      - name: Order Type
+        definition: >-
+          Classification of how price and execution are handled: LIMIT (0),
+          STOP_LOSS_LIMIT (1), MARKET (2), or STOP_LOSS (3).
+      - name: Time In Force
+        definition: >-
+          Duration for which an order remains active: Day order (1, expires at
+          end of trading session) or Good-Till-Cancelled (3, GTC).
+      - name: Confirmation ID
+        definition: >-
+          A UUID returned by the check-order endpoint that must be supplied when
+          confirming and submitting the final order.
+      - name: Transaction Fee
+        definition: >-
+          Brokerage charge levied per executed trade, among the lowest in Europe
+          and returned alongside order confirmation data.
+      - name: Buy/Sell Direction
+        definition: >-
+          Whether the order is to acquire (BUY) or dispose of (SELL) the instrument.
+
+  - name: Portfolio
+    description: Account holdings and position management concepts
+    terms:
+      - name: Position
+        definition: >-
+          A current holding in the account, either a tradable PRODUCT (shares, ETFs,
+          bonds, derivatives) or a CASH fund balance.
+      - name: Break-Even Price
+        definition: >-
+          The average cost basis at which a position would generate neither profit nor loss
+          if closed at that price.
+      - name: Unrealised P&L
+        definition: >-
+          The paper profit or loss on an open position relative to the break-even price,
+          before the position is closed.
+      - name: Today's P&L
+        definition: >-
+          The change in position value during the current trading session.
+      - name: Portfolio Value Correction
+        definition: >-
+          An adjustment factor applied to the reported market value of a position to
+          account for corporate actions or pricing discrepancies.
+      - name: Cash Fund
+        definition: >-
+          A DEGIRO money-market account that holds uninvested cash balances, returned
+          as a CASH position type in portfolio responses.
+
+  - name: Products
+    description: Tradable financial instrument concepts
+    terms:
+      - name: Product ID
+        definition: >-
+          DEGIRO's internal integer identifier for a tradable instrument, used in order
+          placement, portfolio positions, and market data subscriptions.
+      - name: ISIN
+        definition: >-
+          International Securities Identification Number — a 12-character alphanumeric
+          code uniquely identifying a financial instrument globally.
+      - name: Product Type
+        definition: >-
+          The asset class of an instrument: Stock, ETF, Bond, Option, Future, Warrant,
+          Leveraged Product, or Investment Fund.
+      - name: Exchange ID
+        definition: >-
+          DEGIRO's internal identifier for the exchange or venue where an instrument is
+          listed, resolved to a mic or name via the product details endpoint.
+      - name: VWD ID
+        definition: >-
+          Van der Moolen (vwd) data service identifier used to subscribe to real-time
+          Quotecast price feeds for a given instrument.
+      - name: Tradable
+        definition: >-
+          Boolean flag indicating whether the instrument is available for trading in
+          the authenticated user's DEGIRO account.
+
+  - name: Market Data
+    description: Real-time and historical price data concepts
+    terms:
+      - name: Quotecast
+        definition: >-
+          DEGIRO's real-time market data streaming service, delivering live ticker
+          updates for price, volume, bid/ask, and OHLC metrics over HTTP.
+      - name: Subscription
+        definition: >-
+          A Quotecast registration that requests a live feed for a specific instrument
+          metric (e.g. LastPrice, Volume, BidPrice).
+      - name: Chart Data
+        definition: >-
+          Historical OHLCV (Open, High, Low, Close, Volume) series for an instrument
+          at a requested time resolution and period.
+      - name: Issue ID
+        definition: >-
+          An alternative instrument reference used by the charting endpoint to identify
+          the security for historical data requests.
+
+  - name: Reporting
+    description: Account statement and transaction history concepts
+    terms:
+      - name: Account Report
+        definition: >-
+          A downloadable financial statement covering transactions, cash movements,
+          and portfolio history for a specified date range.
+      - name: Transaction History
+        definition: >-
+          A record of all executed trades within a date range, exportable in CSV,
+          HTML, PDF, or XLS format via the reporting endpoint.
+      - name: Order History
+        definition: >-
+          A log of submitted orders (filled, cancelled, rejected) for an account
+          over a specified period.
+      - name: Upcoming Payments
+        definition: >-
+          Scheduled cash events such as dividends, interest, and redemptions associated
+          with instruments in the account.
+
+  - name: Company Intelligence
+    description: Fundamental data, news, and analyst estimate concepts
+    terms:
+      - name: Company Profile
+        definition: >-
+          Descriptive and financial overview of a listed company including sector,
+          industry, description, and key financial metrics.
+      - name: Financial Ratios
+        definition: >-
+          Calculated metrics such as P/E ratio, earnings per share, dividend yield,
+          and return on equity sourced from Refinitiv partnerships.
+      - name: Analyst Estimates
+        definition: >-
+          Consensus forecasts from sell-side analysts for revenue, earnings, and
+          price targets integrated from Refinitiv data.
+      - name: Corporate Events
+        definition: >-
+          Scheduled issuer actions including earnings releases, dividend announcements,
+          IPOs, and stock splits surfaced in the events agenda endpoint.
+      - name: News Feed
+        definition: >-
+          Company-specific news articles and press releases delivered through the
+          DEGIRO platform via Refinitiv and vwd data partnerships.
+
+tags:
+  - Trading
+  - Brokerage
+  - Stocks
+  - ETFs
+  - Bonds
+  - Options
+  - Futures
+  - Portfolio
+  - Market Data
+  - Real-time
+  - Reporting
+  - Finance
+  - Europe
+  - Retail Investing

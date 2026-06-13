@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trader.degiro.nl/schemas/degiro/session.json",
+  "title": "DEGIRO Session",
+  "description": "Represents an authenticated DEGIRO trading session returned after a successful login.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "integer",
+      "description": "Numeric status code for the login result (0 = success)"
+    },
+    "statusText": {
+      "type": "string",
+      "description": "Human-readable description of the login status"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "Opaque session token used as query parameter for subsequent authenticated requests"
+    },
+    "redirectUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to redirect to after successful login"
+    },
+    "locale": {
+      "type": "string",
+      "description": "IETF language tag representing the user's locale (e.g. en_GB)"
+    },
+    "isPassCodeEnabled": {
+      "type": "boolean",
+      "description": "Whether two-factor passcode authentication is enabled on this account"
+    }
+  },
+  "required": ["status", "statusText", "sessionId"]
+}

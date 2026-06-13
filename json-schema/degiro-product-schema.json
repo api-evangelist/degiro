@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trader.degiro.nl/schemas/degiro/product.json",
+  "title": "DEGIRO Product",
+  "description": "Represents a tradable financial instrument discoverable via the DEGIRO product search API, including stocks, ETFs, bonds, options, futures, warrants, leveraged products, and investment funds.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "DEGIRO internal product identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full name of the financial instrument"
+    },
+    "isin": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$",
+      "description": "International Securities Identification Number"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Ticker symbol used on the primary listing exchange"
+    },
+    "contractSize": {
+      "type": "number",
+      "description": "Number of underlying units per contract (for derivatives)"
+    },
+    "productType": {
+      "type": "string",
+      "description": "Asset class category (e.g. STOCK, ETF, BOND, OPTION, FUTURE, WARRANT, FUND)"
+    },
+    "productTypeId": {
+      "type": "integer",
+      "description": "Numeric code corresponding to the product type"
+    },
+    "currency": {
+      "type": "string",
+      "description": "ISO 4217 currency code in which the product is denominated"
+    },
+    "exchangeId": {
+      "type": "string",
+      "description": "DEGIRO exchange identifier for the primary listing venue"
+    },
+    "tradable": {
+      "type": "boolean",
+      "description": "Whether this product can be traded in the current DEGIRO account"
+    },
+    "closePrice": {
+      "type": "number",
+      "description": "Previous session closing price"
+    },
+    "closePriceDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the closing price in YYYY-MM-DD format"
+    }
+  },
+  "required": ["id", "name", "productType", "currency"]
+}

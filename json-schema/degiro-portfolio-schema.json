@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trader.degiro.nl/schemas/degiro/portfolio.json",
+  "title": "DEGIRO Portfolio Position",
+  "description": "Represents a single position in a DEGIRO trading account portfolio, including instrument reference, current holding size, and unrealised profit/loss.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "DEGIRO product identifier for the instrument"
+    },
+    "positionType": {
+      "type": "string",
+      "enum": ["PRODUCT", "CASH"],
+      "description": "Whether the position is a tradable instrument or a cash fund balance"
+    },
+    "size": {
+      "type": "number",
+      "description": "Current holding quantity"
+    },
+    "price": {
+      "type": "number",
+      "description": "Current market price of the instrument"
+    },
+    "value": {
+      "type": "number",
+      "description": "Current market value of the position (size × price)"
+    },
+    "plBase": {
+      "type": "object",
+      "description": "Base currency profit/loss figures keyed by currency code",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "todayPlBase": {
+      "type": "object",
+      "description": "Today's profit/loss in base currency keyed by currency code",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "portfolioValueCorrection": {
+      "type": "number",
+      "description": "Correction factor applied to the portfolio valuation for this position"
+    },
+    "breakEvenPrice": {
+      "type": "number",
+      "description": "Average cost basis price at which the position breaks even"
+    }
+  },
+  "required": ["id", "positionType", "size"]
+}

@@ -1,0 +1,42 @@
+{
+  "operation": "productSearch",
+  "api": "DEGIRO Product Search API",
+  "description": "Search for tradable stocks matching the keyword 'Apple' across all exchanges.",
+  "request": {
+    "method": "GET",
+    "url": "https://trader.degiro.nl/product_search/secure/v5/products/lookup",
+    "queryParams": {
+      "searchText": "Apple",
+      "productTypeId": 1,
+      "limit": 10,
+      "offset": 0,
+      "intAccount": "12345678",
+      "sessionId": "ABCDEF1234567890ABCDEF1234567890.prod_b_112_2"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "offset": 0,
+      "products": [
+        {
+          "id": "332111",
+          "name": "Apple Inc",
+          "isin": "US0378331005",
+          "symbol": "AAPL",
+          "contractSize": 1.0,
+          "productType": "STOCK",
+          "productTypeId": 1,
+          "tradable": true,
+          "currency": "USD",
+          "exchangeId": "663",
+          "closePrice": 189.30,
+          "closePriceDate": "2026-06-12"
+        }
+      ]
+    }
+  }
+}
