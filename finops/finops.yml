@@ -1,0 +1,105 @@
+name: DEGIRO FinOps
+description: >
+  DEGIRO operates a commission-per-trade pricing model with no fixed monthly
+  costs. API usage itself carries no direct cost — charges are incurred only
+  when trades are executed or currency conversions are performed. The following
+  guidance supports cost estimation, budget governance, and FinOps practices
+  for teams or individuals using the DEGIRO platform programmatically.
+costs:
+  - category: Trade Commissions
+    description: >
+      Each order execution incurs a per-trade commission plus a EUR 1 handling
+      fee. Commission rates vary by asset class and exchange. Automated trading
+      strategies must account for round-trip costs (buy + sell) in profitability
+      calculations.
+    billing_model: per_transaction
+    items:
+      - name: Stock trade (home exchange)
+        unit_cost: "EUR 2-4.90 + EUR 1 handling"
+        notes: "Varies by country; e.g. EUR 3 for NL/IE, EUR 2 for US stocks"
+      - name: ETF Core Selection trade
+        unit_cost: "EUR 1 (first monthly trade per ETF free)"
+        notes: "Available on Tradegate exchange"
+      - name: ETF non-Core trade
+        unit_cost: "EUR 3 + EUR 1 handling"
+      - name: Options contract
+        unit_cost: "EUR 0.75 per contract + EUR 1 handling"
+      - name: Futures contract
+        unit_cost: "EUR 0.50 per contract + EUR 1 handling"
+      - name: Bond trade
+        unit_cost: "EUR 2 + EUR 1 handling"
+
+  - category: Currency Conversion
+    description: >
+      DEGIRO automatically converts currencies at a 0.25% spread when trading
+      instruments denominated in a foreign currency. Manual conversions incur a
+      higher flat fee. Automated strategies trading cross-currency instruments
+      should model FX conversion costs in their execution economics.
+    billing_model: percentage_of_transaction
+    items:
+      - name: Auto currency conversion
+        unit_cost: "0.25% of transaction value"
+      - name: Manual currency conversion
+        unit_cost: "EUR 10 + 0.25% of transaction value"
+
+  - category: Financing Costs
+    description: >
+      Margin accounts and leveraged positions incur annual financing charges.
+      CFD positions carry daily financing costs based on the overnight rate.
+      Debit cash balances also incur interest.
+    billing_model: annualized_rate
+    items:
+      - name: Margin loan interest
+        unit_cost: "3% per annum"
+      - name: Debit cash balance interest
+        unit_cost: "Variable; published in DEGIRO fee schedule"
+
+  - category: No-Cost Items
+    description: >
+      Items that incur no direct charges, enabling leaner cost models for
+      read-heavy API workflows.
+    billing_model: free
+    items:
+      - name: Account maintenance
+        unit_cost: "Free"
+      - name: Cash withdrawals
+        unit_cost: "Free (1 free withdrawal per month; subsequent free as well)"
+      - name: Inactivity fee
+        unit_cost: "None"
+      - name: Custody / safekeeping fee
+        unit_cost: "None"
+      - name: Market data access (via platform)
+        unit_cost: "Free with account"
+      - name: Company news and profiles
+        unit_cost: "Free with account"
+      - name: Account reports (CSV/PDF/XLS)
+        unit_cost: "Free with account"
+
+optimization:
+  - strategy: Use Core Selection ETFs for cost reduction
+    description: >
+      The DEGIRO Core Selection offers free monthly first-trade execution on
+      a curated set of ETFs on Tradegate. Automated rebalancing strategies
+      should prefer Core Selection instruments when possible to minimize
+      per-trade costs.
+
+  - strategy: Batch API reads to stay within implied rate limits
+    description: >
+      Since DEGIRO's API is undocumented and rate-limited by heuristic
+      detection, batch portfolio reads and market data fetches into minimum
+      necessary calls. Avoid polling loops shorter than 2-second intervals to
+      reduce risk of session termination.
+
+  - strategy: Model round-trip costs before executing automated strategies
+    description: >
+      Every automated buy-sell cycle incurs at minimum EUR 2-10 in commissions
+      and handling fees plus up to 0.5% in FX conversion. Strategies should
+      target minimum price movements that exceed these friction costs before
+      execution to be economically viable.
+
+  - strategy: Minimize currency conversions
+    description: >
+      Where possible, fund the DEGIRO account in the currency of the target
+      instruments to avoid 0.25% auto-conversion charges on each trade. Holding
+      multi-currency balances reduces ongoing FX friction for international
+      trading strategies.

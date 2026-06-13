@@ -1,0 +1,62 @@
+name: DEGIRO Plans
+description: >
+  DEGIRO operates as a single-tier retail brokerage with no monthly subscription
+  fees or account maintenance charges. All clients access the same trading
+  platform and API capabilities. Revenue is generated through per-trade
+  commissions, currency conversion fees, and margin financing. The fee structure
+  varies by asset class, exchange, and home market designation.
+plans:
+  - name: Standard Account
+    description: >
+      The default DEGIRO brokerage account available to all retail clients
+      across supported European countries. No monthly account fee, no inactivity
+      fee, no custody fee, and no withdrawal fee. Full access to the trading
+      platform including all API-accessible endpoints for portfolio management,
+      order execution, product search, market data, and account reporting.
+    url: https://www.degiro.eu/pricing
+    sandbox: false
+    rate_limits:
+      - type: Session
+        description: >
+          Session-based authentication with a 30-minute trading session timeout
+          that resets on each API call. Real-time Quotecast connections reset
+          approximately every 15 seconds and require re-subscription.
+    features:
+      - Trading on 50+ exchanges across 30 countries
+      - Stocks, ETFs, bonds, options, futures, warrants, investment funds, CFDs
+      - Real-time and historical market data
+      - Portfolio and position management
+      - Order types: LIMIT, MARKET, STOP_LOSS, STOP_LOSS_LIMIT
+      - Account reports in CSV, HTML, PDF, XLS
+      - Company profiles, financials, and news (Refinitiv data)
+      - Analyst estimates and corporate event calendars
+      - Favorites lists and product notes
+      - Free ETF Core Selection (first monthly trade per ETF free)
+      - Two-factor authentication (TOTP)
+    pricing:
+      - asset: Stocks (home exchange, e.g. Euronext Amsterdam)
+        fee: "EUR 3 per trade + EUR 1 handling fee"
+      - asset: Stocks (US markets)
+        fee: "EUR 2 per trade + EUR 1 handling fee"
+      - asset: ETFs (Core Selection, Tradegate)
+        fee: "EUR 1 per trade (first monthly trade per ETF free)"
+      - asset: ETFs (non-Core Selection)
+        fee: "EUR 3 per trade + EUR 1 handling fee"
+      - asset: Options (European exchanges)
+        fee: "EUR 0.75 per contract + EUR 1 handling fee"
+      - asset: Futures
+        fee: "EUR 0.50 per contract + EUR 1 handling fee"
+      - asset: Bonds
+        fee: "EUR 2 per trade + EUR 1 handling fee"
+      - asset: Currency conversion (auto)
+        fee: "0.25% per transaction"
+      - asset: Currency conversion (manual)
+        fee: "EUR 10 + 0.25% of transaction value"
+      - asset: Margin financing
+        fee: "3% per annum"
+      - asset: Account maintenance
+        fee: "Free"
+      - asset: Withdrawals
+        fee: "Free"
+      - asset: Inactivity fee
+        fee: "None"

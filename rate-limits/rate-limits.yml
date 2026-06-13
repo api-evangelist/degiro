@@ -1,0 +1,55 @@
+name: DEGIRO Rate Limits
+description: >
+  DEGIRO does not publish official rate limit documentation as the platform
+  does not provide a public API. The following limits are inferred from
+  community-documented behavior of the unofficial REST endpoints used by the
+  DEGIRO web and mobile trading applications. Exceeding undocumented thresholds
+  may result in session termination or temporary IP-level blocking.
+rate_limits:
+  - scope: Session Authentication
+    description: >
+      Trading sessions expire after 30 minutes of inactivity. Each authenticated
+      API call resets the session timer. Sessions can be maintained indefinitely
+      by ensuring regular activity. Re-authentication is required after session
+      expiry.
+    timeout_minutes: 30
+    reset: per_api_call
+
+  - scope: Quotecast Real-Time Connection
+    description: >
+      Real-time market data connections via the Quotecast service reset
+      approximately every 15 seconds. Clients must re-subscribe to ticker
+      streams after each timeout. This is an architectural constraint of the
+      vwd Quotecast streaming protocol, not a rate limit per se.
+    timeout_seconds: 15
+    reset: per_subscription_or_fetch
+
+  - scope: Request Frequency
+    description: >
+      Community-documented wrappers advise adding deliberate delays between
+      successive API calls to avoid triggering rate limit errors. Observed
+      error message: "Rate limit for the given request exceeded". No official
+      requests-per-minute or requests-per-second figure is published. Empirical
+      evidence from community implementations suggests spacing requests by at
+      least 1-2 seconds for data retrieval and 3-5 seconds for sequential
+      order operations.
+    recommended_delay_seconds: 2
+    enforcement: soft_block_with_error_response
+
+  - scope: Order History Window
+    description: >
+      Order history endpoint enforces a maximum 90-day date range per query.
+      Requests spanning more than 90 days will be rejected. Clients needing
+      longer history must paginate using successive 90-day windows.
+    max_window_days: 90
+    applies_to: order_history
+
+  - scope: Account Automation Policy
+    description: >
+      DEGIRO's Terms of Service prohibit automated trading bots and scripts
+      on standard retail accounts. DEGIRO may suspend or terminate accounts
+      detected using automation. The unofficial API endpoints are not supported
+      by DEGIRO and use of them is at the account holder's risk. No official
+      SLA or uptime guarantee exists for these endpoints.
+    policy_url: https://www.degiro.eu/terms-conditions
+    risk: account_suspension
