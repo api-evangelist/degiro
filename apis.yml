@@ -9,7 +9,7 @@ description: >
   product search, account reporting, and company intelligence. The platform
   serves retail investors across Europe with among the lowest trading commissions
   on the continent.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/apis.yml
 version: "0.19"
 created: "2026-06-13"
@@ -31,7 +31,7 @@ apis:
       management (LIMIT, MARKET, STOP_LOSS, STOP_LOSS_LIMIT), transaction
       history, cash fund queries, and account configuration. Base URL is
       dynamically retrieved from the platform configuration endpoint at login.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.degiro.eu
     baseURL: https://trader.degiro.nl
     tags:
@@ -64,7 +64,7 @@ apis:
       details including ISIN, currency, exchange listing, and pricing metadata.
       Product search URL is resolved from the trading configuration object
       returned at session creation.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.degiro.eu
     baseURL: https://trader.degiro.nl
     tags:
@@ -94,7 +94,7 @@ apis:
       periods. Instruments are referenced by vwd_id or issueid. The Quotecast
       service URL is resolved from the trading configuration and connections
       reset approximately every 15 seconds, requiring periodic re-subscription.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.degiro.eu
     baseURL: https://charting.vwdservices.com
     tags:
@@ -122,7 +122,7 @@ apis:
       Supports account reports, transaction history exports, order history,
       portfolio snapshots, and upcoming payment schedules. Access requires an
       authenticated session with a valid int_account identifier.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.degiro.eu
     baseURL: https://trader.degiro.nl
     tags:
@@ -150,7 +150,7 @@ apis:
       and corporate event agendas (earnings, dividends, IPOs, stock splits).
       Data is sourced via Refinitiv and vwd data partnerships integrated into
       the DEGIRO platform. Access requires a valid DEGIRO trading session.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.degiro.eu
     baseURL: https://trader.degiro.nl
     tags:
