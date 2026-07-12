@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/degiro-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: SessionIdAuth
+  type: apiKey
+  in: query
+  parameter: sessionId
+  sources:
+  - openapi/degiro-openapi.yml
+- name: IntAccountAuth
+  type: apiKey
+  in: query
+  parameter: intAccount
+  sources:
+  - openapi/degiro-openapi.yml

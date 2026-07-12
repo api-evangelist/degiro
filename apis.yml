@@ -172,6 +172,10 @@ apis:
         email: support@degiro.eu
 
 common:
+  - type: DomainSecurity
+    url: security/degiro-domain-security.yml
+  - type: Authentication
+    url: authentication/degiro-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/degiro
   - type: Website
