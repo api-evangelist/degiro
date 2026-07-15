@@ -172,6 +172,8 @@ apis:
         email: support@degiro.eu
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/degiro-agentic-access.yml
   - type: DomainSecurity
     url: security/degiro-domain-security.yml
   - type: Authentication
