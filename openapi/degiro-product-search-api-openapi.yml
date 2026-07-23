@@ -1,0 +1,170 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Unofficial Degiro config product-search API
+  description: Unofficial Degiro API
+  contact:
+    name: Maxim De Clercq
+    url: https://github.com/maximdeclercq/degiro-client
+    email: maximdeclercq00@gmail.com
+servers:
+- url: https://trader.degiro.nl
+security:
+- SessionIdAuth: []
+  IntAccountAuth: []
+tags:
+- name: product-search
+paths:
+  /product_search/secure/v5/products/lookup:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: lookup
+      tags:
+      - product-search
+      parameters:
+      - in: query
+        name: searchText
+        schema:
+          type: string
+        required: true
+        description: Text to search for
+      - in: query
+        name: producTypeId
+        schema:
+          type: string
+        description: TODO
+      - in: query
+        name: sortColumns
+        schema:
+          type: string
+        description: TODO
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 9999
+        description: TODO
+      - in: query
+        name: offset
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 9999
+        description: TODO
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  offset:
+                    type: integer
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        isin:
+                          type: string
+                        symbol:
+                          type: string
+                        contractSize:
+                          type: number
+                        productType:
+                          type: string
+                        productTypeId:
+                          type: integer
+                        tradable:
+                          type: boolean
+                        category:
+                          type: string
+                        currency:
+                          type: string
+                        exchangeId:
+                          type: integer
+                        orderTimeTypes:
+                          type: array
+                          items:
+                            type: string
+                        gtcAllowed:
+                          type: boolean
+                        buyOrderTypes:
+                          type: array
+                          items:
+                            type: string
+                        sellOrderTypes:
+                          type: array
+                          items:
+                            type: string
+                        productBitTypes:
+                          type: array
+                          items:
+                            type: string
+                        marketAllowed:
+                          type: boolean
+                        limitHitOrderAllowed:
+                          type: boolean
+                        stoplossAllowed:
+                          type: boolean
+                        stopLimitOrderAllowed:
+                          type: boolean
+                        joinOrderAllowed:
+                          type: boolean
+                        trailingStopOrderAllowed:
+                          type: boolean
+                        combinedOrderAllowed:
+                          type: boolean
+                        sellAmountAllowed:
+                          type: boolean
+                        isFund:
+                          type: boolean
+                        closePrice:
+                          type: number
+                        closePriceDate:
+                          type: string
+                        feedQuality:
+                          type: string
+                        orderBookDepth:
+                          type: integer
+                        vwdIdentifierType:
+                          type: string
+                        vwdId:
+                          type: string
+                        qualitySwitchable:
+                          type: boolean
+                        qualitySwitchFree:
+                          type: boolean
+                        vwdModuleId:
+                          type: integer
+                        feedQualitySecondary:
+                          type: string
+                        orderBookDepthSecondary:
+                          type: integer
+                        vwdIdentifierTypeSecondary:
+                          type: string
+                        vwdIdSecondary:
+                          type: string
+                        qualitySwitchableSecondary:
+                          type: boolean
+                        qualitySwitchFreeSecondary:
+                          type: boolean
+                        vwdModuleIdSecondary:
+                          type: integer
+components:
+  securitySchemes:
+    SessionIdAuth:
+      type: apiKey
+      in: query
+      name: sessionId
+    IntAccountAuth:
+      type: apiKey
+      in: query
+      name: intAccount

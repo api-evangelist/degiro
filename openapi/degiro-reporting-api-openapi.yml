@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Unofficial Degiro config reporting API
+  description: Unofficial Degiro API
+  contact:
+    name: Maxim De Clercq
+    url: https://github.com/maximdeclercq/degiro-client
+    email: maximdeclercq00@gmail.com
+servers:
+- url: https://trader.degiro.nl
+security:
+- SessionIdAuth: []
+  IntAccountAuth: []
+tags:
+- name: reporting
+paths:
+  /reporting/secure/v4:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: reporting
+      tags:
+      - reporting
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /reporting/secure/v4/order_history:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: orderhistory
+      tags:
+      - reporting
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    SessionIdAuth:
+      type: apiKey
+      in: query
+      name: sessionId
+    IntAccountAuth:
+      type: apiKey
+      in: query
+      name: intAccount

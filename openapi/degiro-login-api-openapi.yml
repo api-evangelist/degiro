@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Unofficial Degiro config login API
+  description: Unofficial Degiro API
+  contact:
+    name: Maxim De Clercq
+    url: https://github.com/maximdeclercq/degiro-client
+    email: maximdeclercq00@gmail.com
+servers:
+- url: https://trader.degiro.nl
+security:
+- SessionIdAuth: []
+  IntAccountAuth: []
+tags:
+- name: login
+paths:
+  /login/secure/login:
+    post:
+      summary: Logs in
+      description: Logs in and returns the sessionId
+      operationId: login
+      tags:
+      - login
+      requestBody:
+        description: A JSON object containing the login and password.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      security: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+components:
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        isPassCodeReset:
+          type: boolean
+        isRedirectToMobile:
+          type: boolean
+        queryParams:
+          type: object
+      required:
+      - username
+      - password
+    LoginResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+        statusText:
+          type: string
+        sessionId:
+          type: string
+        redirectUrl:
+          type: string
+        locale:
+          type: string
+        isPassCodeEnabled:
+          type: boolean
+      required:
+      - status
+      - statusText
+      - sessionId
+  securitySchemes:
+    SessionIdAuth:
+      type: apiKey
+      in: query
+      name: sessionId
+    IntAccountAuth:
+      type: apiKey
+      in: query
+      name: intAccount

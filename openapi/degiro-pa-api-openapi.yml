@@ -1,0 +1,161 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Unofficial Degiro config pa API
+  description: Unofficial Degiro API
+  contact:
+    name: Maxim De Clercq
+    url: https://github.com/maximdeclercq/degiro-client
+    email: maximdeclercq00@gmail.com
+servers:
+- url: https://trader.degiro.nl
+security:
+- SessionIdAuth: []
+  IntAccountAuth: []
+tags:
+- name: pa
+paths:
+  /pa/secure/client:
+    get:
+      summary: Returns the client
+      description: Returns the client
+      operationId: client
+      tags:
+      - pa
+      security:
+      - SessionIdAuth: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientResponse'
+  /pa/secure/clienttasks:
+    get:
+      summary: Returns the client tasks
+      description: Returns the client tasks
+      operationId: clienttasks
+      tags:
+      - pa
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /pa/secure/clienttasks/taskmanager/count:
+    get:
+      summary: Returns the client tasks
+      description: Returns the client tasks
+      operationId: clienttasks-taskmanager-count
+      tags:
+      - pa
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    ClientResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+            intAccount:
+              type: integer
+            clientRole:
+              type: string
+            effectiveClientRole:
+              type: string
+            contractType:
+              type: string
+            username:
+              type: string
+            displayName:
+              type: string
+            email:
+              type: string
+            firstContact:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                displayName:
+                  type: string
+                nationality:
+                  type: string
+                gender:
+                  type: string
+                dateOfBirth:
+                  type: string
+                placeOfBirth:
+                  type: string
+                countryOfBirth:
+                  type: string
+            address:
+              type: object
+              properties:
+                streetAddress:
+                  type: string
+                streetAddressNumber:
+                  type: integer
+                zip:
+                  type: string
+                city:
+                  type: string
+                country:
+                  type: string
+            cellphoneNumber:
+              type: string
+            locale:
+              type: string
+            language:
+              type: string
+            culture:
+              type: string
+            bankAccount:
+              type: object
+              properties:
+                bankAccountId:
+                  type: integer
+                bic:
+                  type: string
+                iban:
+                  type: string
+                status:
+                  type: string
+            memberCode:
+              type: string
+            isWithdrawalAvailable:
+              type: boolean
+            isAllocationAvailable:
+              type: boolean
+            isIskClient:
+              type: boolean
+            isCollectivePortfolio:
+              type: boolean
+            isAmClientActive:
+              type: boolean
+            canUpgrade:
+              type: boolean
+          required:
+          - intAccount
+  securitySchemes:
+    SessionIdAuth:
+      type: apiKey
+      in: query
+      name: sessionId
+    IntAccountAuth:
+      type: apiKey
+      in: query
+      name: intAccount

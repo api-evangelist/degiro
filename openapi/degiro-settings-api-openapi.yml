@@ -1,0 +1,243 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Unofficial Degiro config settings API
+  description: Unofficial Degiro API
+  contact:
+    name: Maxim De Clercq
+    url: https://github.com/maximdeclercq/degiro-client
+    email: maximdeclercq00@gmail.com
+servers:
+- url: https://trader.degiro.nl
+security:
+- SessionIdAuth: []
+  IntAccountAuth: []
+tags:
+- name: settings
+paths:
+  /pa/secure/settings/beta-test:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: beta-test
+      tags:
+      - settings
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      isEnabled:
+                        type: boolean
+                      isEnabledForCurrentVersion:
+                        type: boolean
+                      isForced:
+                        type: boolean
+  /pa/secure/settings/iex:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: iex
+      tags:
+      - settings
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      enabled:
+                        type: boolean
+  /pa/secure/settings/user:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: user
+      tags:
+      - settings
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      desktop:
+                        type: object
+                        properties:
+                          hasSeenProductTour:
+                            type: boolean
+                          isAccountSummaryOpened:
+                            type: boolean
+                          transactionsTableSize:
+                            type: integer
+                          hasClosedInvitationPromotion:
+                            type: boolean
+                      mobile:
+                        type: object
+                        properties:
+                          hasClosedFeedbackPromotion:
+                            type: boolean
+                          hasSeenProductTour:
+                            type: boolean
+                          hasClosedInvitationPromotion:
+                            type: boolean
+  /pa/secure/settings/web:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: web
+      tags:
+      - settings
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      defaultMarketMoversIndexId:
+                        type: integer
+                      marketMoversIndexIds:
+                        type: array
+                        items:
+                          type: integer
+                      marketPageChartIndex:
+                        type: object
+                        properties:
+                          closePrice:
+                            type: number
+                          country:
+                            type: string
+                          name:
+                            type: string
+                          vwdId:
+                            type: string
+                          id:
+                            type: integer
+                      marketPageIndices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            closePrice:
+                              type: number
+                            country:
+                              type: string
+                            name:
+                              type: string
+                            vwdId:
+                              type: string
+                            id:
+                              type: integer
+                      marketPageFutures:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            country:
+                              type: string
+                            name:
+                              type: string
+                            vwdId:
+                              type: string
+                            id:
+                              type: integer
+                      marketPageCurrencies:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            fromCountry:
+                              type: string
+                            toCountry:
+                              type: string
+                            name:
+                              type: string
+                            vwdId:
+                              type: string
+                            id:
+                              type: integer
+                      defaultStockCountryId:
+                        type: integer
+                      defaultStockListType:
+                        type: string
+                      defaultStockListId:
+                        type: integer
+                      defaultOptionExchangeId:
+                        type: integer
+                      defaultOptionCountryId:
+                        type: integer
+                      defaultOptionUnderlyingIsin:
+                        type: string
+                      defaultFutureExchangeId:
+                        type: integer
+                      defaultFutureCountryId:
+                        type: integer
+                      defaultFutureUnderlyingIsin:
+                        type: string
+                      defaultLeveragedExchangeId:
+                        type: integer
+                      defaultLeveragedShortLong:
+                        type: integer
+                      defaultLeveragedIssuerId:
+                        type: integer
+                      defaultLeveragedUnderlyingId:
+                        type: integer
+                      defaultLeveragedPopularOnly:
+                        type: boolean
+                      defaultBondIssuerType:
+                        type: integer
+                      defaultBondExchangeId:
+                        type: integer
+                      defaultFundFeeType:
+                        type: integer
+                      defaultFundIssuerId:
+                        type: integer
+                      defaultEtfExchangeId:
+                        type: integer
+                      defaultEtfFeeType:
+                        type: integer
+                      defaultEtfIssuerId:
+                        type: integer
+                      defaultEtfPopularOnly:
+                        type: boolean
+                      defaultCfdExchangeId:
+                        type: integer
+                      defaultWarrantUnderlyingName:
+                        type: integer
+                      defaultWarrantIssuerName:
+                        type: integer
+                      decimalDelimiter:
+                        type: string
+                      thousandDelimiter:
+                        type: string
+components:
+  securitySchemes:
+    SessionIdAuth:
+      type: apiKey
+      in: query
+      name: sessionId
+    IntAccountAuth:
+      type: apiKey
+      in: query
+      name: intAccount
