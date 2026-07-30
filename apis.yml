@@ -9,7 +9,20 @@ description: >
   product search, account reporting, and company intelligence. The platform
   serves retail investors across Europe with among the lowest trading commissions
   on the continent.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/degiro.png
 url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/apis.yml
 version: "0.19"
 created: "2026-06-13"
@@ -23,154 +36,257 @@ tags:
   - Market Data
   - Finance
 apis:
-  - name: DEGIRO Trading API
-    description: >
-      Session-authenticated REST API powering the DEGIRO web trading platform.
-      Supports full account lifecycle including login with optional two-factor
-      authentication, portfolio position retrieval, order creation and
-      management (LIMIT, MARKET, STOP_LOSS, STOP_LOSS_LIMIT), transaction
-      history, cash fund queries, and account configuration. Base URL is
-      dynamically retrieved from the platform configuration endpoint at login.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.degiro.eu
-    baseURL: https://trader.degiro.nl
-    tags:
-      - Trading
-      - Orders
-      - Portfolio
-      - Account
-    properties:
-      - type: Documentation
-        url: https://github.com/Chavithra/degiro-connector
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/openapi.yml
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
-    contact:
-      - FN: DEGIRO Support
-        url: https://www.degiro.eu/contact
-        email: support@degiro.eu
-
-  - name: DEGIRO Product Search API
-    description: >
-      Endpoint suite for discovering tradable financial instruments on the DEGIRO
-      platform. Supports full-text search across stocks, ETFs, bonds, options,
-      futures, warrants, leveraged products, and investment funds. Allows
-      filtering by exchange, index, and product type, and retrieval of product
-      details including ISIN, currency, exchange listing, and pricing metadata.
-      Product search URL is resolved from the trading configuration object
-      returned at session creation.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.degiro.eu
-    baseURL: https://trader.degiro.nl
-    tags:
-      - Products
-      - Search
-      - Stocks
-      - ETFs
-      - Bonds
-      - Options
-    properties:
-      - type: Documentation
-        url: https://github.com/Chavithra/degiro-connector
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
-    contact:
-      - FN: DEGIRO Support
-        url: https://www.degiro.eu/contact
-        email: support@degiro.eu
-
-  - name: DEGIRO Quotecast API
-    description: >
-      Real-time market data streaming service providing live ticker subscriptions
-      for price, volume, bid/ask, and OHLC metrics across tradable instruments.
-      Supports chart data retrieval with multiple time resolutions and historical
-      periods. Instruments are referenced by vwd_id or issueid. The Quotecast
-      service URL is resolved from the trading configuration and connections
-      reset approximately every 15 seconds, requiring periodic re-subscription.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.degiro.eu
-    baseURL: https://charting.vwdservices.com
-    tags:
-      - Market Data
-      - Real-time
-      - Charts
-      - Quotes
-      - Price Data
-    properties:
-      - type: Documentation
-        url: https://github.com/Chavithra/degiro-connector
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
-    contact:
-      - FN: DEGIRO Support
-        url: https://www.degiro.eu/contact
-        email: support@degiro.eu
-
-  - name: DEGIRO Reporting API
-    description: >
-      Account reporting endpoint providing downloadable financial statements and
-      transaction records in multiple formats including CSV, HTML, PDF, and XLS.
-      Supports account reports, transaction history exports, order history,
-      portfolio snapshots, and upcoming payment schedules. Access requires an
-      authenticated session with a valid int_account identifier.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.degiro.eu
-    baseURL: https://trader.degiro.nl
-    tags:
-      - Reporting
-      - Statements
-      - Transactions
-      - CSV
-      - PDF
-    properties:
-      - type: Documentation
-        url: https://github.com/Chavithra/degiro-connector
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
-    contact:
-      - FN: DEGIRO Support
-        url: https://www.degiro.eu/contact
-        email: support@degiro.eu
-
-  - name: DEGIRO News and Company Intelligence API
-    description: >
-      Company intelligence endpoints providing news feeds, company profiles,
-      financial ratios, income statements, balance sheets, analyst estimates,
-      and corporate event agendas (earnings, dividends, IPOs, stock splits).
-      Data is sourced via Refinitiv and vwd data partnerships integrated into
-      the DEGIRO platform. Access requires a valid DEGIRO trading session.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.degiro.eu
-    baseURL: https://trader.degiro.nl
-    tags:
-      - News
-      - Company Data
-      - Financials
-      - Analyst Estimates
-      - Refinitiv
-    properties:
-      - type: Documentation
-        url: https://github.com/Chavithra/degiro-connector
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
-    contact:
-      - FN: DEGIRO Support
-        url: https://www.degiro.eu/contact
-        email: support@degiro.eu
-
+- name: DEGIRO Product Search API
+  description: >
+    Endpoint suite for discovering tradable financial instruments on the DEGIRO platform. Supports full-text
+    search across stocks, ETFs, bonds, options, futures, warrants, leveraged products, and investment
+    funds. Allows filtering by exchange, index, and product type, and retrieval of product details including
+    ISIN, currency, exchange listing, and pricing metadata. Product search URL is resolved from the trading
+    configuration object returned at session creation.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - Products
+  - Search
+  - Stocks
+  - ETFs
+  - Bonds
+  - Options
+  properties:
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  contact:
+  - FN: DEGIRO Support
+    url: https://www.degiro.eu/contact
+    email: support@degiro.eu
+- name: DEGIRO Quotecast API
+  description: >
+    Real-time market data streaming service providing live ticker subscriptions for price, volume, bid/ask,
+    and OHLC metrics across tradable instruments. Supports chart data retrieval with multiple time resolutions
+    and historical periods. Instruments are referenced by vwd_id or issueid. The Quotecast service URL
+    is resolved from the trading configuration and connections reset approximately every 15 seconds, requiring
+    periodic re-subscription.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.degiro.eu
+  baseURL: https://charting.vwdservices.com
+  tags:
+  - Market Data
+  - Real-time
+  - Charts
+  - Quotes
+  - Price Data
+  properties:
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  contact:
+  - FN: DEGIRO Support
+    url: https://www.degiro.eu/contact
+    email: support@degiro.eu
+- name: DEGIRO Reporting API
+  description: >
+    Account reporting endpoint providing downloadable financial statements and transaction records in
+    multiple formats including CSV, HTML, PDF, and XLS. Supports account reports, transaction history
+    exports, order history, portfolio snapshots, and upcoming payment schedules. Access requires an authenticated
+    session with a valid int_account identifier.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - Reporting
+  - Statements
+  - Transactions
+  - CSV
+  - PDF
+  properties:
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  contact:
+  - FN: DEGIRO Support
+    url: https://www.degiro.eu/contact
+    email: support@degiro.eu
+- name: DEGIRO News and Company Intelligence API
+  description: >
+    Company intelligence endpoints providing news feeds, company profiles, financial ratios, income statements,
+    balance sheets, analyst estimates, and corporate event agendas (earnings, dividends, IPOs, stock splits).
+    Data is sourced via Refinitiv and vwd data partnerships integrated into the DEGIRO platform. Access
+    requires a valid DEGIRO trading session.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - News
+  - Company Data
+  - Financials
+  - Analyst Estimates
+  - Refinitiv
+  properties:
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  contact:
+  - FN: DEGIRO Support
+    url: https://www.degiro.eu/contact
+    email: support@degiro.eu
+- aid: degiro:degiro-config-api
+  name: DEGIRO config API
+  description: The config API from DEGIRO — 1 operation(s) for config.
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - config
+  properties:
+  - type: OpenAPI
+    url: openapi/degiro-config-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
+- aid: degiro:degiro-login-api
+  name: DEGIRO login API
+  description: The login API from DEGIRO — 1 operation(s) for login.
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - login
+  properties:
+  - type: OpenAPI
+    url: openapi/degiro-login-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
+- aid: degiro:degiro-pa-api
+  name: DEGIRO pa API
+  description: The pa API from DEGIRO — 3 operation(s) for pa.
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - pa
+  properties:
+  - type: OpenAPI
+    url: openapi/degiro-pa-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
+- aid: degiro:degiro-product-search-api
+  name: DEGIRO product-search API
+  description: The product-search API from DEGIRO — 1 operation(s) for product-search.
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - product-search
+  properties:
+  - type: OpenAPI
+    url: openapi/degiro-product-search-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
+- aid: degiro:degiro-reporting-api
+  name: DEGIRO reporting API
+  description: The reporting API from DEGIRO — 2 operation(s) for reporting.
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - reporting
+  properties:
+  - type: OpenAPI
+    url: openapi/degiro-reporting-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
+- aid: degiro:degiro-settings-api
+  name: DEGIRO settings API
+  description: The settings API from DEGIRO — 4 operation(s) for settings.
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - settings
+  properties:
+  - type: OpenAPI
+    url: openapi/degiro-settings-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
+- aid: degiro:degiro-trading-api
+  name: DEGIRO trading API
+  description: The trading API from DEGIRO — 4 operation(s) for trading.
+  humanURL: https://www.degiro.eu
+  baseURL: https://trader.degiro.nl
+  tags:
+  - trading
+  properties:
+  - type: OpenAPI
+    url: openapi/degiro-trading-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Chavithra/degiro-connector
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
 common:
   - type: AgenticAccess
     url: agentic-access/degiro-agentic-access.yml
