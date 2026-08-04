@@ -1,0 +1,26 @@
+{
+  "provider": "degiro",
+  "sources": [
+    "degiro-config-api-openapi.yml",
+    "degiro-login-api-openapi.yml",
+    "degiro-pa-api-openapi.yml",
+    "degiro-product-search-api-openapi.yml",
+    "degiro-reporting-api-openapi.yml",
+    "degiro-settings-api-openapi.yml",
+    "degiro-trading-api-openapi.yml"
+  ],
+  "outputs": [
+    "degiro-config-api-openapi.yml",
+    "degiro-login-api-openapi.yml",
+    "degiro-pa-api-openapi.yml",
+    "degiro-product-search-api-openapi.yml",
+    "degiro-reporting-api-openapi.yml",
+    "degiro-settings-api-openapi.yml",
+    "degiro-trading-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

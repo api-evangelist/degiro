@@ -1,0 +1,963 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Unofficial Degiro API
+  description: Unofficial Degiro API
+  contact:
+    name: Maxim De Clercq
+    url: https://github.com/maximdeclercq/degiro-client
+    email: maximdeclercq00@gmail.com
+servers:
+  - url: https://trader.degiro.nl
+components:
+  securitySchemes:
+    SessionIdAuth:
+      type: apiKey
+      in: query
+      name: sessionId
+    IntAccountAuth:
+      type: apiKey
+      in: query
+      name: intAccount
+  schemas:
+    Any:
+      oneOf:
+        - type: boolean
+        - type: integer
+        - type: number
+        - type: string
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        isPassCodeReset:
+          type: boolean
+        isRedirectToMobile:
+          type: boolean
+        queryParams:
+          type: object
+      required:
+        - username
+        - password
+    LoginResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+        statusText:
+          type: string
+        sessionId:
+          type: string
+        redirectUrl:
+          type: string
+        locale:
+          type: string
+        isPassCodeEnabled:
+          type: boolean
+      required:
+        - status
+        - statusText
+        - sessionId
+    ClientResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+            intAccount:
+              type: integer
+            clientRole:
+              type: string
+            effectiveClientRole:
+              type: string
+            contractType:
+              type: string
+            username:
+              type: string
+            displayName:
+              type: string
+            email:
+              type: string
+            firstContact:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                displayName:
+                  type: string
+                nationality:
+                  type: string
+                gender:
+                  type: string
+                dateOfBirth:
+                  type: string
+                placeOfBirth:
+                  type: string
+                countryOfBirth:
+                  type: string
+            address:
+              type: object
+              properties:
+                streetAddress:
+                  type: string
+                streetAddressNumber:
+                  type: integer
+                zip:
+                  type: string
+                city:
+                  type: string
+                country:
+                  type: string
+            cellphoneNumber:
+              type: string
+            locale:
+              type: string
+            language:
+              type: string
+            culture:
+              type: string
+            bankAccount:
+              type: object
+              properties:
+                bankAccountId:
+                  type: integer
+                bic:
+                  type: string
+                iban:
+                  type: string
+                status:
+                  type: string
+            memberCode:
+              type: string
+            isWithdrawalAvailable:
+              type: boolean
+            isAllocationAvailable:
+              type: boolean
+            isIskClient:
+              type: boolean
+            isCollectivePortfolio:
+              type: boolean
+            isAmClientActive:
+              type: boolean
+            canUpgrade:
+              type: boolean
+          required:
+            - intAccount
+    ConfigResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            tradingUrl:
+              type: string
+            paUrl:
+              type: string
+            reportingUrl:
+              type: string
+            paymentServiceUrl:
+              type: string
+            cashSolutionsUrl:
+              type: string
+            productSearchUrl:
+              type: string
+            dictionaryUrl:
+              type: string
+            productTypesUrl:
+              type: string
+            companiesServiceUrl:
+              type: string
+            i18nUrl:
+              type: string
+            vwdQuotecastServiceUrl:
+              type: string
+            vwdNewsUrl:
+              type: string
+            vwdGossipsUrl:
+              type: string
+            firstLoginWizardUrl:
+              type: string
+            taskManagerUrl:
+              type: string
+            landingPath:
+              type: string
+            betaLandingPath:
+              type: string
+            mobileLandingPath:
+              type: string
+            loginUrl:
+              type: string
+            sessionId:
+              type: string
+            clientId:
+              type: string
+          required:
+            - sessionId
+            - clientId
+    UpdateResponse:
+      type: object
+      properties:
+        orders:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        historicalOrders:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        transactions:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        portfolio:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        cashFunds:
+          $ref: '#/components/schemas/UpdateResponsePart'
+    UpdateResponsePart:
+      type: object
+      properties:
+        lastUpdated:
+          type: integer
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              isAdded:
+                type: boolean
+              value:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    isAdded:
+                      type: boolean
+                    value:
+                      $ref: '#/components/schemas/Any'
+    OrderRequest:
+      type: object
+      properties:
+        buySell:
+          type: string
+          enum: [BUY, SELL]
+        orderType:
+          type: integer
+          enum: [0, 1, 2, 3]
+          description: |
+            Order type:
+             * `0` - Limit Order
+             * `1` - Market Order
+             * `2` - Stoploss
+             * `3` - Stoplimit Order
+        productId:
+          type: string
+          description: Product identifier
+        timeType:
+          type: integer
+          enum: [1, 3]
+          description: |
+            Time type:
+              * `1` - Day Order
+              * `3` - Permanent Order
+        size:
+          type: integer
+          description: Size
+        price:
+          type: number
+          description: Price
+    CheckOrderResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            confirmationId:
+              type: string
+              description: Indentifier to execute the order with
+            transactionFees:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  amount:
+                    type: integer
+                  currency:
+                    type: string
+            transactionTaxes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  amount:
+                    type: integer
+                  currency:
+                    type: string
+    OrderResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            orderId:
+              type: string
+security:
+  - SessionIdAuth: []
+    IntAccountAuth:  []
+paths:
+  /login/secure/login:
+    post:
+      summary: Logs in
+      description: Logs in and returns the sessionId
+      operationId: login
+      tags:
+        - login
+      requestBody:
+        description: A JSON object containing the login and password.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      security: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+  /login/secure/config:
+    get:
+      summary: Returns the config
+      description: Returns the config
+      operationId: config
+      tags:
+        - config
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigResponse'
+  /pa/secure/client:
+    get:
+      summary: Returns the client
+      description: Returns the client
+      operationId: client
+      tags:
+        - pa
+      security:
+        - SessionIdAuth: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientResponse'
+  /pa/secure/clienttasks:
+    get:
+      summary: Returns the client tasks
+      description: Returns the client tasks
+      operationId: clienttasks
+      tags:
+        - pa
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string  # TODO
+  /pa/secure/clienttasks/taskmanager/count:
+    get:
+      summary: Returns the client tasks
+      description: Returns the client tasks
+      operationId: clienttasks-taskmanager-count
+      tags:
+        - pa
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string  # TODO
+  /pa/secure/settings/beta-test:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: beta-test
+      tags:
+        - settings
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      isEnabled:
+                        type: boolean
+                      isEnabledForCurrentVersion:
+                        type: boolean
+                      isForced:
+                        type: boolean
+  /pa/secure/settings/iex:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: iex
+      tags:
+        - settings
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      enabled:
+                        type: boolean
+  /pa/secure/settings/user:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: user
+      tags:
+        - settings
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      desktop:
+                        type: object
+                        properties:
+                          hasSeenProductTour:
+                            type: boolean
+                          isAccountSummaryOpened:
+                            type: boolean
+                          transactionsTableSize:
+                            type: integer
+                          hasClosedInvitationPromotion:
+                            type: boolean
+                      mobile:
+                        type: object
+                        properties:
+                          hasClosedFeedbackPromotion:
+                            type: boolean
+                          hasSeenProductTour:
+                            type: boolean
+                          hasClosedInvitationPromotion:
+                            type: boolean
+  /pa/secure/settings/web:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: web
+      tags:
+        - settings
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      defaultMarketMoversIndexId:
+                        type: integer
+                      marketMoversIndexIds:
+                        type: array
+                        items:
+                          type: integer
+                      marketPageChartIndex:
+                        type: object
+                        properties:
+                          closePrice:
+                            type: number
+                          country:
+                            type: string
+                          name:
+                            type: string
+                          vwdId:
+                            type: string
+                          id:
+                            type: integer
+                      marketPageIndices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            closePrice:
+                              type: number
+                            country:
+                              type: string
+                            name:
+                              type: string
+                            vwdId:
+                              type: string
+                            id:
+                              type: integer
+                      marketPageFutures:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            country:
+                              type: string
+                            name:
+                              type: string
+                            vwdId:
+                              type: string
+                            id:
+                              type: integer
+                      marketPageCurrencies:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            fromCountry:
+                              type: string
+                            toCountry:
+                              type: string
+                            name:
+                              type: string
+                            vwdId:
+                              type: string
+                            id:
+                              type: integer
+                      defaultStockCountryId:
+                        type: integer
+                      defaultStockListType:
+                        type: string
+                      defaultStockListId:
+                        type: integer
+                      defaultOptionExchangeId:
+                        type: integer
+                      defaultOptionCountryId:
+                        type: integer
+                      defaultOptionUnderlyingIsin:
+                        type: string
+                      defaultFutureExchangeId:
+                        type: integer
+                      defaultFutureCountryId:
+                        type: integer
+                      defaultFutureUnderlyingIsin:
+                        type: string
+                      defaultLeveragedExchangeId:
+                        type: integer
+                      defaultLeveragedShortLong:
+                        type: integer
+                      defaultLeveragedIssuerId:
+                        type: integer
+                      defaultLeveragedUnderlyingId:
+                        type: integer
+                      defaultLeveragedPopularOnly:
+                        type: boolean
+                      defaultBondIssuerType:
+                        type: integer
+                      defaultBondExchangeId:
+                        type: integer
+                      defaultFundFeeType:
+                        type: integer
+                      defaultFundIssuerId:
+                        type: integer
+                      defaultEtfExchangeId:
+                        type: integer
+                      defaultEtfFeeType:
+                        type: integer
+                      defaultEtfIssuerId:
+                        type: integer
+                      defaultEtfPopularOnly:
+                        type: boolean
+                      defaultCfdExchangeId:
+                        type: integer
+                      defaultWarrantUnderlyingName:
+                        type: integer
+                      defaultWarrantIssuerName:
+                        type: integer
+                      decimalDelimiter:
+                        type: string
+                      thousandDelimiter:
+                        type: string
+  /reporting/secure/v4:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: reporting
+      tags:
+        - reporting
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string  # TODO
+  /reporting/secure/v4/order_history:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: orderhistory
+      tags:
+        - reporting
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string  # TODO
+  /product_search/secure/v5/products/lookup:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: lookup
+      tags:
+        - product-search
+      parameters:
+        - in: query
+          name: searchText
+          schema:
+            type: string
+          required: true
+          description: Text to search for
+        - in: query
+          name: producTypeId
+          schema:
+            type: string  # TODO
+          description: TODO # TODO
+        - in: query
+          name: sortColumns
+          schema:
+            type: string  # TODO
+          description: TODO # TODO
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9999  # TODO
+          description: TODO # TODO
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9999  # TODO
+          description: TODO # TODO
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  offset:
+                    type: integer
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        isin:
+                          type: string
+                        symbol:
+                          type: string
+                        contractSize:
+                          type: number
+                        productType:
+                          type: string
+                        productTypeId:
+                          type: integer
+                        tradable:
+                          type: boolean
+                        category:
+                          type: string
+                        currency:
+                          type: string
+                        exchangeId:
+                          type: integer
+                        orderTimeTypes:
+                          type: array
+                          items:
+                            type: string
+                        gtcAllowed:
+                          type: boolean
+                        buyOrderTypes:
+                          type: array
+                          items:
+                            type: string
+                        sellOrderTypes:
+                          type: array
+                          items:
+                            type: string
+                        productBitTypes:
+                          type: array
+                          items:
+                            type: string
+                        marketAllowed:
+                          type: boolean
+                        limitHitOrderAllowed:
+                          type: boolean
+                        stoplossAllowed:
+                          type: boolean
+                        stopLimitOrderAllowed:
+                          type: boolean
+                        joinOrderAllowed:
+                          type: boolean
+                        trailingStopOrderAllowed:
+                          type: boolean
+                        combinedOrderAllowed:
+                          type: boolean
+                        sellAmountAllowed:
+                          type: boolean
+                        isFund:
+                          type: boolean
+                        closePrice:
+                          type: number
+                        closePriceDate:
+                          type: string
+                        feedQuality:
+                          type: string
+                        orderBookDepth:
+                          type: integer
+                        vwdIdentifierType:
+                          type: string
+                        vwdId:
+                          type: string
+                        qualitySwitchable:
+                          type: boolean
+                        qualitySwitchFree:
+                          type: boolean
+                        vwdModuleId:
+                          type: integer
+                        feedQualitySecondary:
+                          type: string
+                        orderBookDepthSecondary:
+                          type: integer
+                        vwdIdentifierTypeSecondary:
+                          type: string
+                        vwdIdSecondary:
+                          type: string
+                        qualitySwitchableSecondary:
+                          type: boolean
+                        qualitySwitchFreeSecondary:
+                          type: boolean
+                        vwdModuleIdSecondary:
+                          type: integer
+  /trading/secure/v5/account/info/{intAccount};jsessionid={sessionId}:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: accountInfo
+      tags:
+        - trading
+      parameters:
+        - in: path
+          name: intAccount
+          schema:
+            type: integer
+          required: true
+          description: Account ID
+        - in: path
+          name: sessionId
+          schema:
+            type: string
+          required: true
+          description: Session ID
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string  # TODO
+  /trading/secure/v5/update/{intAccount};jsessionid={sessionId}:
+    get:
+      summary: TODO
+      description: TODO
+      operationId: update
+      tags:
+        - trading
+      parameters:
+        - in: path
+          name: intAccount
+          schema:
+            type: integer
+          required: true
+          description: Account ID
+        - in: path
+          name: sessionId
+          schema:
+            type: string
+          required: true
+          description: Session ID
+        - in: query
+          name: orders
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 0
+          description: Get orders (Set to 0)
+        - in: query
+          name: historicalOrders
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 0
+          description: Get historical orders (Set to 0)
+        - in: query
+          name: transactions
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 0
+          description: Get transactions (Set to 0)
+        - in: query
+          name: portfolio
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 0
+          description: Get portfolio (Set to 0)
+        - in: query
+          name: cashFunds
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 0
+          description: Get cash funds (Set to 0)
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateResponse'
+  /trading/secure/v5/checkOrder;jsessionid={sessionId}:
+    post:
+      summary: TODO
+      description: TODO
+      operationId: checkOrder
+      tags:
+        - trading
+      parameters:
+        - in: path
+          name: sessionId
+          schema:
+            type: string
+          required: true
+          description: Session ID
+      requestBody:
+        description: A JSON object containing the order to check.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckOrderResponse'
+  /trading/secure/v5/order/{confirmationId};jsessionid={sessionId}:
+    post:
+      summary: TODO
+      description: TODO
+      operationId: confirmOrder
+      tags:
+        - trading
+      parameters:
+        - in: path
+          name: confirmationId
+          schema:
+            type: string
+          required: true
+          description: Indentifier to execute the order with
+        - in: path
+          name: sessionId
+          schema:
+            type: string
+          required: true
+          description: Session ID
+      requestBody:
+        description: A JSON object containing the order.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+    delete:
+      summary: TODO
+      description: TODO
+      operationId: deleteOrder
+      tags:
+        - trading
+      parameters:
+        - in: path
+          name: orderId
+          schema:
+            type: string
+          required: true
+          description: Order ID
+        - in: path
+          name: sessionId
+          schema:
+            type: string
+          required: true
+          description: Session ID
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
