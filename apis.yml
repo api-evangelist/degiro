@@ -9,6 +9,7 @@ description: >
   product search, account reporting, and company intelligence. The platform
   serves retail investors across Europe with among the lowest trading commissions
   on the continent.
+specificationVersion: '0.23'
 accessModel:
   pricing: paid
   onboarding: self-serve
