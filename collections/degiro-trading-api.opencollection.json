@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unofficial Degiro config trading API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sessionId",
+      "value": "{{sessionId}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "trading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TODO",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://trader.degiro.nl/trading/secure/v5/account/info/:intAccount;jsessionid=:sessionId",
+            "params": [
+              {
+                "name": "intAccount",
+                "value": "",
+                "type": "path",
+                "description": "Account ID"
+              },
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ]
+          },
+          "docs": "TODO"
+        },
+        {
+          "info": {
+            "name": "TODO",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://trader.degiro.nl/trading/secure/v5/update/:intAccount;jsessionid=:sessionId",
+            "params": [
+              {
+                "name": "intAccount",
+                "value": "",
+                "type": "path",
+                "description": "Account ID"
+              },
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              },
+              {
+                "name": "orders",
+                "value": "",
+                "type": "query",
+                "description": "Get orders (Set to 0)"
+              },
+              {
+                "name": "historicalOrders",
+                "value": "",
+                "type": "query",
+                "description": "Get historical orders (Set to 0)"
+              },
+              {
+                "name": "transactions",
+                "value": "",
+                "type": "query",
+                "description": "Get transactions (Set to 0)"
+              },
+              {
+                "name": "portfolio",
+                "value": "",
+                "type": "query",
+                "description": "Get portfolio (Set to 0)"
+              },
+              {
+                "name": "cashFunds",
+                "value": "",
+                "type": "query",
+                "description": "Get cash funds (Set to 0)"
+              }
+            ]
+          },
+          "docs": "TODO"
+        },
+        {
+          "info": {
+            "name": "TODO",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://trader.degiro.nl/trading/secure/v5/checkOrder;jsessionid=:sessionId",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "TODO"
+        },
+        {
+          "info": {
+            "name": "TODO",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://trader.degiro.nl/trading/secure/v5/order/:confirmationId;jsessionid=:sessionId",
+            "params": [
+              {
+                "name": "confirmationId",
+                "value": "",
+                "type": "path",
+                "description": "Indentifier to execute the order with"
+              },
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "TODO"
+        },
+        {
+          "info": {
+            "name": "TODO",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://trader.degiro.nl/trading/secure/v5/order/:confirmationId;jsessionid=:sessionId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path",
+                "description": "Order ID"
+              },
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ]
+          },
+          "docs": "TODO"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unofficial Degiro config product-search API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sessionId",
+      "value": "{{sessionId}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "product-search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TODO",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://trader.degiro.nl/product_search/secure/v5/products/lookup",
+            "params": [
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query",
+                "description": "Text to search for"
+              },
+              {
+                "name": "producTypeId",
+                "value": "",
+                "type": "query",
+                "description": "TODO"
+              },
+              {
+                "name": "sortColumns",
+                "value": "",
+                "type": "query",
+                "description": "TODO"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "TODO"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "TODO"
+              }
+            ]
+          },
+          "docs": "TODO"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

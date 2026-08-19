@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unofficial Degiro config reporting API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sessionId",
+      "value": "{{sessionId}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "reporting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TODO",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://trader.degiro.nl/reporting/secure/v4"
+          },
+          "docs": "TODO"
+        },
+        {
+          "info": {
+            "name": "TODO",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://trader.degiro.nl/reporting/secure/v4/order_history"
+          },
+          "docs": "TODO"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,128 @@
+{
+  "item": [
+    {
+      "id": "f0f42119-3658-4a0f-9653-e99f79a0440f",
+      "name": "config",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b82fba9-d6a4-4551-bfbc-b9a9e2109897",
+          "name": "Returns the config",
+          "request": {
+            "name": "Returns the config",
+            "description": {
+              "content": "Returns the config",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "login",
+                "secure",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc5415d5-8bbc-44d5-b73c-daf022173a86",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login",
+                    "secure",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"sessionId\": \"string\",\n    \"clientId\": \"string\",\n    \"tradingUrl\": \"string\",\n    \"paUrl\": \"string\",\n    \"reportingUrl\": \"string\",\n    \"paymentServiceUrl\": \"string\",\n    \"cashSolutionsUrl\": \"string\",\n    \"productSearchUrl\": \"string\",\n    \"dictionaryUrl\": \"string\",\n    \"productTypesUrl\": \"string\",\n    \"companiesServiceUrl\": \"string\",\n    \"i18nUrl\": \"string\",\n    \"vwdQuotecastServiceUrl\": \"string\",\n    \"vwdNewsUrl\": \"string\",\n    \"vwdGossipsUrl\": \"string\",\n    \"firstLoginWizardUrl\": \"string\",\n    \"taskManagerUrl\": \"string\",\n    \"landingPath\": \"string\",\n    \"betaLandingPath\": \"string\",\n    \"mobileLandingPath\": \"string\",\n    \"loginUrl\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://trader.degiro.nl",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1a31c31c-b162-4735-a85d-dfec0341996e",
+    "name": "Unofficial Degiro config API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unofficial Degiro API\n\nContact Support:\n Name: Maxim De Clercq\n Email: maximdeclercq00@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

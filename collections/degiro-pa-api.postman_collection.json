@@ -1,0 +1,306 @@
+{
+  "item": [
+    {
+      "id": "8e140d2b-fec0-4dca-87d3-9e5c38c26de4",
+      "name": "pa",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bbb10a22-912b-422b-8f68-167c41bbfb53",
+          "name": "Returns the client",
+          "request": {
+            "name": "Returns the client",
+            "description": {
+              "content": "Returns the client",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pa",
+                "secure",
+                "client"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionId"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f6afe29-a723-47dc-9c6f-55055cfc6bd8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pa",
+                    "secure",
+                    "client"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"intAccount\": 4112,\n    \"id\": 5318,\n    \"clientRole\": \"string\",\n    \"effectiveClientRole\": \"string\",\n    \"contractType\": \"string\",\n    \"username\": \"string\",\n    \"displayName\": \"string\",\n    \"email\": \"string\",\n    \"firstContact\": {\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"displayName\": \"string\",\n      \"nationality\": \"string\",\n      \"gender\": \"string\",\n      \"dateOfBirth\": \"string\",\n      \"placeOfBirth\": \"string\",\n      \"countryOfBirth\": \"string\"\n    },\n    \"address\": {\n      \"streetAddress\": \"string\",\n      \"streetAddressNumber\": 8276,\n      \"zip\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\"\n    },\n    \"cellphoneNumber\": \"string\",\n    \"locale\": \"string\",\n    \"language\": \"string\",\n    \"culture\": \"string\",\n    \"bankAccount\": {\n      \"bankAccountId\": 707,\n      \"bic\": \"string\",\n      \"iban\": \"string\",\n      \"status\": \"string\"\n    },\n    \"memberCode\": \"string\",\n    \"isWithdrawalAvailable\": true,\n    \"isAllocationAvailable\": false,\n    \"isIskClient\": false,\n    \"isCollectivePortfolio\": false,\n    \"isAmClientActive\": true,\n    \"canUpgrade\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "169687d6-0c73-483d-9e50-34712de2b8ec",
+          "name": "Returns the client tasks",
+          "request": {
+            "name": "Returns the client tasks",
+            "description": {
+              "content": "Returns the client tasks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pa",
+                "secure",
+                "clienttasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4978423d-28d2-4f32-a9e0-dc66191d8718",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pa",
+                    "secure",
+                    "clienttasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d09fce75-991d-468b-ad87-80c4bacdda91",
+          "name": "Returns the client tasks",
+          "request": {
+            "name": "Returns the client tasks",
+            "description": {
+              "content": "Returns the client tasks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pa",
+                "secure",
+                "clienttasks",
+                "taskmanager",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67bafa5d-55fd-4c82-88da-422dae792310",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pa",
+                    "secure",
+                    "clienttasks",
+                    "taskmanager",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://trader.degiro.nl",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f7529001-df56-49ec-a30c-ce81fdb0873f",
+    "name": "Unofficial Degiro config pa API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unofficial Degiro API\n\nContact Support:\n Name: Maxim De Clercq\n Email: maximdeclercq00@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

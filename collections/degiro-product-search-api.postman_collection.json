@@ -1,0 +1,183 @@
+{
+  "item": [
+    {
+      "id": "87f9bcbe-7695-4e06-9f00-76fd84ee0fb8",
+      "name": "product-search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8143422f-208f-4dfc-9eaf-4ee6d117f1ef",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product_search",
+                "secure",
+                "v5",
+                "products",
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchText",
+                  "value": "<string>",
+                  "description": "(Required) Text to search for"
+                },
+                {
+                  "disabled": false,
+                  "key": "producTypeId",
+                  "value": "<string>",
+                  "description": "TODO"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortColumns",
+                  "value": "<string>",
+                  "description": "TODO"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "TODO"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "TODO"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b89280ae-44d2-4295-8827-bf08a0c702ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product_search",
+                    "secure",
+                    "v5",
+                    "products",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchText",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "producTypeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortColumns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 3731,\n  \"products\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"isin\": \"string\",\n      \"symbol\": \"string\",\n      \"contractSize\": 3999.5780929819234,\n      \"productType\": \"string\",\n      \"productTypeId\": 6211,\n      \"tradable\": true,\n      \"category\": \"string\",\n      \"currency\": \"string\",\n      \"exchangeId\": 9480,\n      \"orderTimeTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"gtcAllowed\": false,\n      \"buyOrderTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sellOrderTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"productBitTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"marketAllowed\": false,\n      \"limitHitOrderAllowed\": false,\n      \"stoplossAllowed\": false,\n      \"stopLimitOrderAllowed\": true,\n      \"joinOrderAllowed\": true,\n      \"trailingStopOrderAllowed\": false,\n      \"combinedOrderAllowed\": false,\n      \"sellAmountAllowed\": true,\n      \"isFund\": false,\n      \"closePrice\": 8536.74460632985,\n      \"closePriceDate\": \"string\",\n      \"feedQuality\": \"string\",\n      \"orderBookDepth\": 8343,\n      \"vwdIdentifierType\": \"string\",\n      \"vwdId\": \"string\",\n      \"qualitySwitchable\": false,\n      \"qualitySwitchFree\": false,\n      \"vwdModuleId\": 5472,\n      \"feedQualitySecondary\": \"string\",\n      \"orderBookDepthSecondary\": 5167,\n      \"vwdIdentifierTypeSecondary\": \"string\",\n      \"vwdIdSecondary\": \"string\",\n      \"qualitySwitchableSecondary\": true,\n      \"qualitySwitchFreeSecondary\": true,\n      \"vwdModuleIdSecondary\": 3791\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"isin\": \"string\",\n      \"symbol\": \"string\",\n      \"contractSize\": 8480.807979409488,\n      \"productType\": \"string\",\n      \"productTypeId\": 1534,\n      \"tradable\": false,\n      \"category\": \"string\",\n      \"currency\": \"string\",\n      \"exchangeId\": 7920,\n      \"orderTimeTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"gtcAllowed\": true,\n      \"buyOrderTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sellOrderTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"productBitTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"marketAllowed\": true,\n      \"limitHitOrderAllowed\": true,\n      \"stoplossAllowed\": true,\n      \"stopLimitOrderAllowed\": true,\n      \"joinOrderAllowed\": true,\n      \"trailingStopOrderAllowed\": false,\n      \"combinedOrderAllowed\": false,\n      \"sellAmountAllowed\": false,\n      \"isFund\": false,\n      \"closePrice\": 8512.738673259026,\n      \"closePriceDate\": \"string\",\n      \"feedQuality\": \"string\",\n      \"orderBookDepth\": 864,\n      \"vwdIdentifierType\": \"string\",\n      \"vwdId\": \"string\",\n      \"qualitySwitchable\": false,\n      \"qualitySwitchFree\": true,\n      \"vwdModuleId\": 9999,\n      \"feedQualitySecondary\": \"string\",\n      \"orderBookDepthSecondary\": 4886,\n      \"vwdIdentifierTypeSecondary\": \"string\",\n      \"vwdIdSecondary\": \"string\",\n      \"qualitySwitchableSecondary\": true,\n      \"qualitySwitchFreeSecondary\": true,\n      \"vwdModuleIdSecondary\": 675\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://trader.degiro.nl",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "897d11ac-410e-43ac-910d-dfd37781f44e",
+    "name": "Unofficial Degiro config product-search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unofficial Degiro API\n\nContact Support:\n Name: Maxim De Clercq\n Email: maximdeclercq00@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

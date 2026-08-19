@@ -1,0 +1,373 @@
+{
+  "item": [
+    {
+      "id": "17c79321-86c2-48a1-a638-22791afb84e2",
+      "name": "settings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e18e25c-b458-4519-9e48-a3db365ee974",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pa",
+                "secure",
+                "settings",
+                "beta-test"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce91d0b3-c7ad-43b5-a52a-1ea75e426aae",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pa",
+                    "secure",
+                    "settings",
+                    "beta-test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"isEnabled\": false,\n    \"isEnabledForCurrentVersion\": false,\n    \"isForced\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9583b28-19e0-4c4d-9b49-de986b8238c5",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pa",
+                "secure",
+                "settings",
+                "iex"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec2e08cb-e40c-4521-bc69-754d1ac94478",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pa",
+                    "secure",
+                    "settings",
+                    "iex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"enabled\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "970d67ce-08ad-49ad-986e-89315e4c33ee",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pa",
+                "secure",
+                "settings",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54e57bc0-1dad-4ea5-a9a2-95b8919bf618",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pa",
+                    "secure",
+                    "settings",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"desktop\": {\n      \"hasSeenProductTour\": true,\n      \"isAccountSummaryOpened\": false,\n      \"transactionsTableSize\": 3071,\n      \"hasClosedInvitationPromotion\": true\n    },\n    \"mobile\": {\n      \"hasClosedFeedbackPromotion\": true,\n      \"hasSeenProductTour\": true,\n      \"hasClosedInvitationPromotion\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d19e65d7-9242-4abf-9465-c6853ef7a278",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pa",
+                "secure",
+                "settings",
+                "web"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0de5629e-c22e-4786-b3fe-98ec0ad5aa0b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pa",
+                    "secure",
+                    "settings",
+                    "web"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"defaultMarketMoversIndexId\": 6416,\n    \"marketMoversIndexIds\": [\n      5336,\n      8522\n    ],\n    \"marketPageChartIndex\": {\n      \"closePrice\": 9703.234806368102,\n      \"country\": \"string\",\n      \"name\": \"string\",\n      \"vwdId\": \"string\",\n      \"id\": 2381\n    },\n    \"marketPageIndices\": [\n      {\n        \"closePrice\": 9969.625807671238,\n        \"country\": \"string\",\n        \"name\": \"string\",\n        \"vwdId\": \"string\",\n        \"id\": 2352\n      },\n      {\n        \"closePrice\": 8361.163479678822,\n        \"country\": \"string\",\n        \"name\": \"string\",\n        \"vwdId\": \"string\",\n        \"id\": 9099\n      }\n    ],\n    \"marketPageFutures\": [\n      {\n        \"country\": \"string\",\n        \"name\": \"string\",\n        \"vwdId\": \"string\",\n        \"id\": 644\n      },\n      {\n        \"country\": \"string\",\n        \"name\": \"string\",\n        \"vwdId\": \"string\",\n        \"id\": 546\n      }\n    ],\n    \"marketPageCurrencies\": [\n      {\n        \"fromCountry\": \"string\",\n        \"toCountry\": \"string\",\n        \"name\": \"string\",\n        \"vwdId\": \"string\",\n        \"id\": 5387\n      },\n      {\n        \"fromCountry\": \"string\",\n        \"toCountry\": \"string\",\n        \"name\": \"string\",\n        \"vwdId\": \"string\",\n        \"id\": 969\n      }\n    ],\n    \"defaultStockCountryId\": 6478,\n    \"defaultStockListType\": \"string\",\n    \"defaultStockListId\": 782,\n    \"defaultOptionExchangeId\": 3852,\n    \"defaultOptionCountryId\": 6643,\n    \"defaultOptionUnderlyingIsin\": \"string\",\n    \"defaultFutureExchangeId\": 2992,\n    \"defaultFutureCountryId\": 8991,\n    \"defaultFutureUnderlyingIsin\": \"string\",\n    \"defaultLeveragedExchangeId\": 7227,\n    \"defaultLeveragedShortLong\": 2879,\n    \"defaultLeveragedIssuerId\": 789,\n    \"defaultLeveragedUnderlyingId\": 42,\n    \"defaultLeveragedPopularOnly\": true,\n    \"defaultBondIssuerType\": 3619,\n    \"defaultBondExchangeId\": 1045,\n    \"defaultFundFeeType\": 5463,\n    \"defaultFundIssuerId\": 9241,\n    \"defaultEtfExchangeId\": 6799,\n    \"defaultEtfFeeType\": 5468,\n    \"defaultEtfIssuerId\": 5422,\n    \"defaultEtfPopularOnly\": false,\n    \"defaultCfdExchangeId\": 1521,\n    \"defaultWarrantUnderlyingName\": 3997,\n    \"defaultWarrantIssuerName\": 486,\n    \"decimalDelimiter\": \"string\",\n    \"thousandDelimiter\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://trader.degiro.nl",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9632a480-3c9f-42d5-991e-e3f02da55f3a",
+    "name": "Unofficial Degiro config settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unofficial Degiro API\n\nContact Support:\n Name: Maxim De Clercq\n Email: maximdeclercq00@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

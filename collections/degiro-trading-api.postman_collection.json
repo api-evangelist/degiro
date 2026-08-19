@@ -1,0 +1,603 @@
+{
+  "item": [
+    {
+      "id": "1dae31ce-b359-4466-ac38-ed5c8497d0aa",
+      "name": "trading",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0041bc6-ef6b-429a-a1fb-bfbd424b3d43",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "trading",
+                "secure",
+                "v5",
+                "account",
+                "info",
+                "{{intAccount}};jsessionid={{sessionId}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "950f763a-cb38-4a12-b5b2-a2bec1459cd4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trading",
+                    "secure",
+                    "v5",
+                    "account",
+                    "info",
+                    "{{intAccount}};jsessionid={{sessionId}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de410887-6968-4a32-8592-024edd7fa959",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "trading",
+                "secure",
+                "v5",
+                "update",
+                "{{intAccount}};jsessionid={{sessionId}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "orders",
+                  "value": "<integer>",
+                  "description": "Get orders (Set to 0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "historicalOrders",
+                  "value": "<integer>",
+                  "description": "Get historical orders (Set to 0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "transactions",
+                  "value": "<integer>",
+                  "description": "Get transactions (Set to 0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "portfolio",
+                  "value": "<integer>",
+                  "description": "Get portfolio (Set to 0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "cashFunds",
+                  "value": "<integer>",
+                  "description": "Get cash funds (Set to 0)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a541f5ec-fe19-4d5e-9eba-81ac88ed0fc3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trading",
+                    "secure",
+                    "v5",
+                    "update",
+                    "{{intAccount}};jsessionid={{sessionId}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orders",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "historicalOrders",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "transactions",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "portfolio",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "cashFunds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": {\n    \"lastUpdated\": 8246,\n    \"name\": \"string\",\n    \"value\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": true,\n            \"value\": false\n          }\n        ]\n      }\n    ]\n  },\n  \"historicalOrders\": {\n    \"lastUpdated\": 2684,\n    \"name\": \"string\",\n    \"value\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": true,\n            \"value\": false\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": true,\n            \"value\": true\n          }\n        ]\n      }\n    ]\n  },\n  \"transactions\": {\n    \"lastUpdated\": 9947,\n    \"name\": \"string\",\n    \"value\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": true\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          }\n        ]\n      }\n    ]\n  },\n  \"portfolio\": {\n    \"lastUpdated\": 2942,\n    \"name\": \"string\",\n    \"value\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": true,\n            \"value\": true\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": true,\n            \"value\": false\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": true,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": true,\n            \"value\": false\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": true,\n            \"value\": false\n          }\n        ]\n      }\n    ]\n  },\n  \"cashFunds\": {\n    \"lastUpdated\": 4360,\n    \"name\": \"string\",\n    \"value\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": true\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"isAdded\": false,\n        \"value\": [\n          {\n            \"name\": \"string\",\n            \"isAdded\": false,\n            \"value\": false\n          },\n          {\n            \"name\": \"string\",\n            \"isAdded\": true,\n            \"value\": false\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "980e4e4b-d113-443f-9b3b-f0d0a60c41fa",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "trading",
+                "secure",
+                "v5",
+                "checkOrder;jsessionid={{sessionId}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"buySell\": \"<string>\",\n  \"orderType\": \"<integer>\",\n  \"productId\": \"<string>\",\n  \"timeType\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"price\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afac17ab-da97-41fb-aa78-a1ea55e32b7b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trading",
+                    "secure",
+                    "v5",
+                    "checkOrder;jsessionid={{sessionId}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"buySell\": \"<string>\",\n  \"orderType\": \"<integer>\",\n  \"productId\": \"<string>\",\n  \"timeType\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"price\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"confirmationId\": \"string\",\n    \"transactionFees\": [\n      {\n        \"id\": 3359,\n        \"amount\": 7175,\n        \"currency\": \"string\"\n      },\n      {\n        \"id\": 6162,\n        \"amount\": 4851,\n        \"currency\": \"string\"\n      }\n    ],\n    \"transactionTaxes\": [\n      {\n        \"id\": 7342,\n        \"amount\": 9541,\n        \"currency\": \"string\"\n      },\n      {\n        \"id\": 9846,\n        \"amount\": 9898,\n        \"currency\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "426956a9-6589-4157-829c-153c8c0d58ba",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "trading",
+                "secure",
+                "v5",
+                "order",
+                "{{confirmationId}};jsessionid={{sessionId}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"buySell\": \"<string>\",\n  \"orderType\": \"<integer>\",\n  \"productId\": \"<string>\",\n  \"timeType\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"price\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f5b6b52-c8de-42a6-9c6e-c5b043bf06aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trading",
+                    "secure",
+                    "v5",
+                    "order",
+                    "{{confirmationId}};jsessionid={{sessionId}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"buySell\": \"<string>\",\n  \"orderType\": \"<integer>\",\n  \"productId\": \"<string>\",\n  \"timeType\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"price\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"orderId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f378999-fe99-4657-9adc-32b93844c7d2",
+          "name": "TODO",
+          "request": {
+            "name": "TODO",
+            "description": {
+              "content": "TODO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "trading",
+                "secure",
+                "v5",
+                "order",
+                "{{confirmationId}};jsessionid={{sessionId}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2900b55f-1cc1-49ef-b3c0-e6bbf5bc0408",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trading",
+                    "secure",
+                    "v5",
+                    "order",
+                    "{{confirmationId}};jsessionid={{sessionId}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionId",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://trader.degiro.nl",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Account ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "intAccount"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Session ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "sessionId"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Indentifier to execute the order with",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "confirmationId"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cb48fa47-4f39-4b5f-9118-8028b88a1790",
+    "name": "Unofficial Degiro config trading API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unofficial Degiro API\n\nContact Support:\n Name: Maxim De Clercq\n Email: maximdeclercq00@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}
