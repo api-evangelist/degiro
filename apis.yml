@@ -48,6 +48,13 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
+  - Product
+  - Search
+  - Stocks
+  - ETFs
+  - Bonds
+  - Options
+  tags_raw:
   - Products
   - Search
   - Stocks
@@ -78,6 +85,12 @@ apis:
   baseURL: https://charting.vwdservices.com
   tags:
   - Market Data
+  - Real-Time
+  - Charts
+  - Quotes
+  - Price Data
+  tags_raw:
+  - Market Data
   - Real-time
   - Charts
   - Quotes
@@ -104,6 +117,12 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
+  - Reporting
+  - Statements
+  - Transaction
+  - CSV
+  - PDF
+  tags_raw:
   - Reporting
   - Statements
   - Transactions
@@ -154,6 +173,8 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
+  - Config
+  tags_raw:
   - config
   properties:
   - type: OpenAPI
@@ -174,6 +195,8 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
+  - Login
+  tags_raw:
   - login
   properties:
   - type: OpenAPI
@@ -214,6 +237,8 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
+  - Product Search
+  tags_raw:
   - product-search
   properties:
   - type: OpenAPI
@@ -234,6 +259,8 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
+  - Reporting
+  tags_raw:
   - reporting
   properties:
   - type: OpenAPI
@@ -254,6 +281,8 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
+  - Settings
+  tags_raw:
   - settings
   properties:
   - type: OpenAPI
@@ -274,6 +303,8 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
+  - Trading
+  tags_raw:
   - trading
   properties:
   - type: OpenAPI
