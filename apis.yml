@@ -9,6 +9,18 @@ description: >
   product search, account reporting, and company intelligence. The platform
   serves retail investors across Europe with among the lowest trading commissions
   on the continent.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 specificationVersion: '0.23'
 accessModel:
   pricing: paid
