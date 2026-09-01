@@ -249,7 +249,7 @@ apis:
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
   tags:
-  - product-search
+  - Product Search
   tags_raw:
   - product-search
   properties:
