@@ -165,6 +165,12 @@ apis:
   tags:
   - News
   - Company Data
+  - Financial
+  - Analyst Estimates
+  - Refinitiv
+  tags_raw:
+  - News
+  - Company Data
   - Financials
   - Analyst Estimates
   - Refinitiv
