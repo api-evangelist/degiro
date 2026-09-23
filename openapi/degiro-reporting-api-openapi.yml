@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 0.0.1
-  title: Unofficial Degiro config reporting API
+  title: Unofficial Degiro Reporting API
   description: Unofficial Degiro API
   contact:
     name: Maxim De Clercq
@@ -13,15 +13,14 @@ security:
 - SessionIdAuth: []
   IntAccountAuth: []
 tags:
-- name: reporting
+- name: Reporting
 paths:
   /reporting/secure/v4:
     get:
       summary: TODO
-      description: TODO
       operationId: reporting
       tags:
-      - reporting
+      - Reporting
       responses:
         200:
           description: OK
@@ -32,10 +31,9 @@ paths:
   /reporting/secure/v4/order_history:
     get:
       summary: TODO
-      description: TODO
       operationId: orderhistory
       tags:
-      - reporting
+      - Reporting
       responses:
         200:
           description: OK

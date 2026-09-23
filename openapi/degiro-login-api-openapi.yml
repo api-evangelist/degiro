@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 0.0.1
-  title: Unofficial Degiro config login API
+  title: Unofficial Degiro Login API
   description: Unofficial Degiro API
   contact:
     name: Maxim De Clercq
@@ -13,7 +13,7 @@ security:
 - SessionIdAuth: []
   IntAccountAuth: []
 tags:
-- name: login
+- name: Login
 paths:
   /login/secure/login:
     post:
@@ -21,7 +21,7 @@ paths:
       description: Logs in and returns the sessionId
       operationId: login
       tags:
-      - login
+      - Login
       requestBody:
         description: A JSON object containing the login and password.
         required: true

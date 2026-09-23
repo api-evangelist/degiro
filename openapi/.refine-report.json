@@ -1,13 +1,7 @@
 {
   "provider": "degiro",
   "sources": [
-    "degiro-config-api-openapi.yml",
-    "degiro-login-api-openapi.yml",
-    "degiro-pa-api-openapi.yml",
-    "degiro-product-search-api-openapi.yml",
-    "degiro-reporting-api-openapi.yml",
-    "degiro-settings-api-openapi.yml",
-    "degiro-trading-api-openapi.yml"
+    "_original/degiro-openapi.yml"
   ],
   "outputs": [
     "degiro-config-api-openapi.yml",
@@ -21,6 +15,25 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "degiro-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "degiro-openapi.yml: declared missing tag: config",
+    "degiro-openapi.yml: declared missing tag: login",
+    "degiro-openapi.yml: declared missing tag: pa",
+    "degiro-openapi.yml: declared missing tag: product-search",
+    "degiro-openapi.yml: declared missing tag: reporting",
+    "degiro-openapi.yml: declared missing tag: settings",
+    "degiro-openapi.yml: declared missing tag: trading",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "degiro-config-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "degiro-login-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "degiro-pa-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "degiro-product-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "degiro-reporting-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "degiro-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "degiro-trading-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

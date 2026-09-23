@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 0.0.1
-  title: Unofficial Degiro config settings API
+  title: Unofficial Degiro Settings API
   description: Unofficial Degiro API
   contact:
     name: Maxim De Clercq
@@ -13,15 +13,14 @@ security:
 - SessionIdAuth: []
   IntAccountAuth: []
 tags:
-- name: settings
+- name: Settings
 paths:
   /pa/secure/settings/beta-test:
     get:
       summary: TODO
-      description: TODO
       operationId: beta-test
       tags:
-      - settings
+      - Settings
       responses:
         200:
           description: OK
@@ -42,10 +41,9 @@ paths:
   /pa/secure/settings/iex:
     get:
       summary: TODO
-      description: TODO
       operationId: iex
       tags:
-      - settings
+      - Settings
       responses:
         200:
           description: OK
@@ -62,10 +60,9 @@ paths:
   /pa/secure/settings/user:
     get:
       summary: TODO
-      description: TODO
       operationId: user
       tags:
-      - settings
+      - Settings
       responses:
         200:
           description: OK
@@ -100,10 +97,9 @@ paths:
   /pa/secure/settings/web:
     get:
       summary: TODO
-      description: TODO
       operationId: web
       tags:
-      - settings
+      - Settings
       responses:
         200:
           description: OK

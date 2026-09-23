@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 0.0.1
-  title: Unofficial Degiro config trading API
+  title: Unofficial Degiro Trading API
   description: Unofficial Degiro API
   contact:
     name: Maxim De Clercq
@@ -13,15 +13,14 @@ security:
 - SessionIdAuth: []
   IntAccountAuth: []
 tags:
-- name: trading
+- name: Trading
 paths:
   /trading/secure/v5/account/info/{intAccount};jsessionid={sessionId}:
     get:
       summary: TODO
-      description: TODO
       operationId: accountInfo
       tags:
-      - trading
+      - Trading
       parameters:
       - in: path
         name: intAccount
@@ -45,10 +44,9 @@ paths:
   /trading/secure/v5/update/{intAccount};jsessionid={sessionId}:
     get:
       summary: TODO
-      description: TODO
       operationId: update
       tags:
-      - trading
+      - Trading
       parameters:
       - in: path
         name: intAccount
@@ -107,10 +105,9 @@ paths:
   /trading/secure/v5/checkOrder;jsessionid={sessionId}:
     post:
       summary: TODO
-      description: TODO
       operationId: checkOrder
       tags:
-      - trading
+      - Trading
       parameters:
       - in: path
         name: sessionId
@@ -135,10 +132,9 @@ paths:
   /trading/secure/v5/order/{confirmationId};jsessionid={sessionId}:
     post:
       summary: TODO
-      description: TODO
       operationId: confirmOrder
       tags:
-      - trading
+      - Trading
       parameters:
       - in: path
         name: confirmationId
@@ -168,10 +164,9 @@ paths:
                 $ref: '#/components/schemas/OrderResponse'
     delete:
       summary: TODO
-      description: TODO
       operationId: deleteOrder
       tags:
-      - trading
+      - Trading
       parameters:
       - in: path
         name: orderId
@@ -194,6 +189,12 @@ paths:
                 type: object
 components:
   schemas:
+    Any:
+      oneOf:
+      - type: boolean
+      - type: integer
+      - type: number
+      - type: string
     CheckOrderResponse:
       type: object
       properties:
@@ -225,19 +226,35 @@ components:
                     type: integer
                   currency:
                     type: string
-    UpdateResponse:
+    UpdateResponsePart:
       type: object
       properties:
-        orders:
-          $ref: '#/components/schemas/UpdateResponsePart'
-        historicalOrders:
-          $ref: '#/components/schemas/UpdateResponsePart'
-        transactions:
-          $ref: '#/components/schemas/UpdateResponsePart'
-        portfolio:
-          $ref: '#/components/schemas/UpdateResponsePart'
-        cashFunds:
-          $ref: '#/components/schemas/UpdateResponsePart'
+        lastUpdated:
+          type: integer
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              isAdded:
+                type: boolean
+              value:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    isAdded:
+                      type: boolean
+                    value:
+                      $ref: '#/components/schemas/Any'
     OrderResponse:
       type: object
       properties:
@@ -277,41 +294,19 @@ components:
         price:
           type: number
           description: Price
-    UpdateResponsePart:
+    UpdateResponse:
       type: object
       properties:
-        lastUpdated:
-          type: integer
-        name:
-          type: string
-        value:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              id:
-                type: string
-              isAdded:
-                type: boolean
-              value:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                    isAdded:
-                      type: boolean
-                    value:
-                      $ref: '#/components/schemas/Any'
-    Any:
-      oneOf:
-      - type: boolean
-      - type: integer
-      - type: number
-      - type: string
+        orders:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        historicalOrders:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        transactions:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        portfolio:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        cashFunds:
+          $ref: '#/components/schemas/UpdateResponsePart'
   securitySchemes:
     SessionIdAuth:
       type: apiKey
