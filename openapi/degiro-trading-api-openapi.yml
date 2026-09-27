@@ -189,12 +189,37 @@ paths:
                 type: object
 components:
   schemas:
-    Any:
-      oneOf:
-      - type: boolean
-      - type: integer
-      - type: number
-      - type: string
+    OrderRequest:
+      type: object
+      properties:
+        buySell:
+          type: string
+          enum:
+          - BUY
+          - SELL
+        orderType:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          description: "Order type:\n * `0` - Limit Order\n * `1` - Market Order\n * `2` - Stoploss\n * `3` - Stoplimit Order\n"
+        productId:
+          type: string
+          description: Product identifier
+        timeType:
+          type: integer
+          enum:
+          - 1
+          - 3
+          description: "Time type:\n  * `1` - Day Order\n  * `3` - Permanent Order\n"
+        size:
+          type: integer
+          description: Size
+        price:
+          type: number
+          description: Price
     CheckOrderResponse:
       type: object
       properties:
@@ -263,37 +288,6 @@ components:
           properties:
             orderId:
               type: string
-    OrderRequest:
-      type: object
-      properties:
-        buySell:
-          type: string
-          enum:
-          - BUY
-          - SELL
-        orderType:
-          type: integer
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          description: "Order type:\n * `0` - Limit Order\n * `1` - Market Order\n * `2` - Stoploss\n * `3` - Stoplimit Order\n"
-        productId:
-          type: string
-          description: Product identifier
-        timeType:
-          type: integer
-          enum:
-          - 1
-          - 3
-          description: "Time type:\n  * `1` - Day Order\n  * `3` - Permanent Order\n"
-        size:
-          type: integer
-          description: Size
-        price:
-          type: number
-          description: Price
     UpdateResponse:
       type: object
       properties:
@@ -307,6 +301,12 @@ components:
           $ref: '#/components/schemas/UpdateResponsePart'
         cashFunds:
           $ref: '#/components/schemas/UpdateResponsePart'
+    Any:
+      oneOf:
+      - type: boolean
+      - type: integer
+      - type: number
+      - type: string
   securitySchemes:
     SessionIdAuth:
       type: apiKey

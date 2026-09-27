@@ -49,6 +49,7 @@ tags:
   - Portfolio
   - Market Data
   - Finance
+  - Investing
 apis:
 - name: DEGIRO Product Search API
   description: >
@@ -165,7 +166,7 @@ apis:
   tags:
   - News
   - Company Data
-  - Financial
+  - Finance
   - Analyst Estimates
   - Refinitiv
   tags_raw:
@@ -174,6 +175,7 @@ apis:
   - Financials
   - Analyst Estimates
   - Refinitiv
+  - Financial
   properties:
   - type: Documentation
     url: https://github.com/Chavithra/degiro-connector
@@ -187,7 +189,7 @@ apis:
     url: https://www.degiro.eu/contact
     email: support@degiro.eu
 - aid: degiro:degiro-config-api
-  name: DEGIRO config API
+  name: DEGIRO Config API
   description: The config API from DEGIRO — 1 operation(s) for config.
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
@@ -209,7 +211,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
 - aid: degiro:degiro-login-api
-  name: DEGIRO login API
+  name: DEGIRO Login API
   description: The login API from DEGIRO — 1 operation(s) for login.
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
@@ -231,7 +233,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
 - aid: degiro:degiro-pa-api
-  name: DEGIRO pa API
+  name: DEGIRO Pa API
   description: The pa API from DEGIRO — 3 operation(s) for pa.
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
@@ -251,7 +253,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
 - aid: degiro:degiro-product-search-api
-  name: DEGIRO product-search API
+  name: DEGIRO Product Search API
   description: The product-search API from DEGIRO — 1 operation(s) for product-search.
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
@@ -273,7 +275,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
 - aid: degiro:degiro-reporting-api
-  name: DEGIRO reporting API
+  name: DEGIRO Reporting API
   description: The reporting API from DEGIRO — 2 operation(s) for reporting.
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
@@ -295,7 +297,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
 - aid: degiro:degiro-settings-api
-  name: DEGIRO settings API
+  name: DEGIRO Settings API
   description: The settings API from DEGIRO — 4 operation(s) for settings.
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl
@@ -317,7 +319,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/degiro/refs/heads/main/finops/finops.yml
 - aid: degiro:degiro-trading-api
-  name: DEGIRO trading API
+  name: DEGIRO Trading API
   description: The trading API from DEGIRO — 4 operation(s) for trading.
   humanURL: https://www.degiro.eu
   baseURL: https://trader.degiro.nl

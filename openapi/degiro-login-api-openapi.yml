@@ -39,22 +39,6 @@ paths:
                 $ref: '#/components/schemas/LoginResponse'
 components:
   schemas:
-    LoginRequest:
-      type: object
-      properties:
-        username:
-          type: string
-        password:
-          type: string
-        isPassCodeReset:
-          type: boolean
-        isRedirectToMobile:
-          type: boolean
-        queryParams:
-          type: object
-      required:
-      - username
-      - password
     LoginResponse:
       type: object
       properties:
@@ -74,6 +58,22 @@ components:
       - status
       - statusText
       - sessionId
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        isPassCodeReset:
+          type: boolean
+        isRedirectToMobile:
+          type: boolean
+        queryParams:
+          type: object
+      required:
+      - username
+      - password
   securitySchemes:
     SessionIdAuth:
       type: apiKey
