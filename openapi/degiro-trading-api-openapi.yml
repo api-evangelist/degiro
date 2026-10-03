@@ -189,37 +189,35 @@ paths:
                 type: object
 components:
   schemas:
-    OrderRequest:
+    UpdateResponsePart:
       type: object
       properties:
-        buySell:
+        lastUpdated:
+          type: integer
+        name:
           type: string
-          enum:
-          - BUY
-          - SELL
-        orderType:
-          type: integer
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          description: "Order type:\n * `0` - Limit Order\n * `1` - Market Order\n * `2` - Stoploss\n * `3` - Stoplimit Order\n"
-        productId:
-          type: string
-          description: Product identifier
-        timeType:
-          type: integer
-          enum:
-          - 1
-          - 3
-          description: "Time type:\n  * `1` - Day Order\n  * `3` - Permanent Order\n"
-        size:
-          type: integer
-          description: Size
-        price:
-          type: number
-          description: Price
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              isAdded:
+                type: boolean
+              value:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    isAdded:
+                      type: boolean
+                    value:
+                      $ref: '#/components/schemas/Any'
     CheckOrderResponse:
       type: object
       properties:
@@ -251,35 +249,6 @@ components:
                     type: integer
                   currency:
                     type: string
-    UpdateResponsePart:
-      type: object
-      properties:
-        lastUpdated:
-          type: integer
-        name:
-          type: string
-        value:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              id:
-                type: string
-              isAdded:
-                type: boolean
-              value:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                    isAdded:
-                      type: boolean
-                    value:
-                      $ref: '#/components/schemas/Any'
     OrderResponse:
       type: object
       properties:
@@ -288,6 +257,12 @@ components:
           properties:
             orderId:
               type: string
+    Any:
+      oneOf:
+      - type: boolean
+      - type: integer
+      - type: number
+      - type: string
     UpdateResponse:
       type: object
       properties:
@@ -301,12 +276,37 @@ components:
           $ref: '#/components/schemas/UpdateResponsePart'
         cashFunds:
           $ref: '#/components/schemas/UpdateResponsePart'
-    Any:
-      oneOf:
-      - type: boolean
-      - type: integer
-      - type: number
-      - type: string
+    OrderRequest:
+      type: object
+      properties:
+        buySell:
+          type: string
+          enum:
+          - BUY
+          - SELL
+        orderType:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          description: "Order type:\n * `0` - Limit Order\n * `1` - Market Order\n * `2` - Stoploss\n * `3` - Stoplimit Order\n"
+        productId:
+          type: string
+          description: Product identifier
+        timeType:
+          type: integer
+          enum:
+          - 1
+          - 3
+          description: "Time type:\n  * `1` - Day Order\n  * `3` - Permanent Order\n"
+        size:
+          type: integer
+          description: Size
+        price:
+          type: number
+          description: Price
   securitySchemes:
     SessionIdAuth:
       type: apiKey
