@@ -189,93 +189,6 @@ paths:
                 type: object
 components:
   schemas:
-    UpdateResponsePart:
-      type: object
-      properties:
-        lastUpdated:
-          type: integer
-        name:
-          type: string
-        value:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              id:
-                type: string
-              isAdded:
-                type: boolean
-              value:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                    isAdded:
-                      type: boolean
-                    value:
-                      $ref: '#/components/schemas/Any'
-    CheckOrderResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            confirmationId:
-              type: string
-              description: Indentifier to execute the order with
-            transactionFees:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  amount:
-                    type: integer
-                  currency:
-                    type: string
-            transactionTaxes:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  amount:
-                    type: integer
-                  currency:
-                    type: string
-    OrderResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            orderId:
-              type: string
-    Any:
-      oneOf:
-      - type: boolean
-      - type: integer
-      - type: number
-      - type: string
-    UpdateResponse:
-      type: object
-      properties:
-        orders:
-          $ref: '#/components/schemas/UpdateResponsePart'
-        historicalOrders:
-          $ref: '#/components/schemas/UpdateResponsePart'
-        transactions:
-          $ref: '#/components/schemas/UpdateResponsePart'
-        portfolio:
-          $ref: '#/components/schemas/UpdateResponsePart'
-        cashFunds:
-          $ref: '#/components/schemas/UpdateResponsePart'
     OrderRequest:
       type: object
       properties:
@@ -307,6 +220,93 @@ components:
         price:
           type: number
           description: Price
+    UpdateResponsePart:
+      type: object
+      properties:
+        lastUpdated:
+          type: integer
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              isAdded:
+                type: boolean
+              value:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    isAdded:
+                      type: boolean
+                    value:
+                      $ref: '#/components/schemas/Any'
+    OrderResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            orderId:
+              type: string
+    CheckOrderResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            confirmationId:
+              type: string
+              description: Indentifier to execute the order with
+            transactionFees:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  amount:
+                    type: integer
+                  currency:
+                    type: string
+            transactionTaxes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  amount:
+                    type: integer
+                  currency:
+                    type: string
+    Any:
+      oneOf:
+      - type: boolean
+      - type: integer
+      - type: number
+      - type: string
+    UpdateResponse:
+      type: object
+      properties:
+        orders:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        historicalOrders:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        transactions:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        portfolio:
+          $ref: '#/components/schemas/UpdateResponsePart'
+        cashFunds:
+          $ref: '#/components/schemas/UpdateResponsePart'
   securitySchemes:
     SessionIdAuth:
       type: apiKey
