@@ -64,88 +64,172 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-DEGIRO is a European discount brokerage platform offering retail investors access to stocks, ETFs, bonds, options, futures, warrants, and investment funds across 50+ exchanges in 30 countries. Founded in the Netherlands in 2013, DEGIRO is known for among the lowest trading commissions in Europe and is regulated by the Dutch Authority for the Financial Markets (AFM) and De Nederlandsche Bank (DNB).
+DEGIRO is a European discount brokerage platform providing low-cost trading across stocks, ETFs, bonds, options, futures, warrants, and investment funds. While DEGIRO does not publish an official public API, their trading platform exposes REST-style HTTP endpoints used by the web and mobile trading applications. These unofficial endpoints support session-based authentication, portfolio management, order execution, real-time and historical market data, product search, account reporting, and company intelligence. The platform serves retail investors across Europe with among the lowest trading commissions on the continent.
 
-## APIs
+**Areas:** Trading · Brokerage · Stocks · ETFs · Portfolio · Market Data · Finance · Investing · Financial Services
 
-DEGIRO does not provide an official public API. The DEGIRO trading platform exposes REST-style HTTP endpoints used internally by the web and mobile trading applications. These endpoints have been documented by the developer community through reverse engineering and are available via multiple open-source client libraries.
+## DEGIRO on APIs.io
 
-### Trading API
+Everything profiled for DEGIRO is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/degiro/](https://apis.io/providers/degiro/)** — or go straight to one of the APIs or properties below.
 
-Session-authenticated REST API for account management, portfolio operations, and order execution. Supports:
+### APIs (11)
 
-- **Authentication**: Username/password login with optional TOTP two-factor authentication; session-based (JSESSIONID cookie); 30-minute session timeout
-- **Account Management**: Account configuration, client details, account state and info
-- **Portfolio**: Current positions, open orders, pending orders, cash funds
-- **Order Management**: Create, update, delete, and retrieve orders (LIMIT, MARKET, STOP_LOSS, STOP_LOSS_LIMIT types; DAY or PERMANENT duration)
-- **Transaction History**: Historical trades and orders (90-day maximum window per query)
-- **Favorites and Notes**: Manage watchlists and annotate instruments
-- **Upcoming Payments**: Dividend and payment schedule retrieval
+- [DEGIRO Product Search API](https://apis.io/apis/degiro/degiro-product-search-api/) — Endpoint suite for discovering tradable financial instruments on the DEGIRO platform. Supports full-text search across stocks, ETFs, bonds, options,…
+- [DEGIRO Quotecast API](https://apis.io/apis/degiro/degiro-quotecast-api/) — Real-time market data streaming service providing live ticker subscriptions for price, volume, bid/ask, and OHLC metrics across tradable instruments.…
+- [DEGIRO Reporting API](https://apis.io/apis/degiro/degiro-reporting-api/) — Account reporting endpoint providing downloadable financial statements and transaction records in multiple formats including CSV, HTML, PDF, and XLS.…
+- [DEGIRO News and Company Intelligence API](https://apis.io/apis/degiro/degiro-news-and-company-intelligence-api/) — Company intelligence endpoints providing news feeds, company profiles, financial ratios, income statements, balance sheets, analyst estimates, and corporate…
+- [DEGIRO Config API](https://apis.io/apis/degiro/degiro-config-api/) — The config API from DEGIRO — 1 operation(s) for config.
+- [DEGIRO Login API](https://apis.io/apis/degiro/degiro-login-api/) — The login API from DEGIRO — 1 operation(s) for login.
+- [DEGIRO Pa API](https://apis.io/apis/degiro/degiro-pa-api/) — The pa API from DEGIRO — 3 operation(s) for pa.
+- [DEGIRO Product Search API](https://apis.io/apis/degiro/degiro-product-search-api/) — The product-search API from DEGIRO — 1 operation(s) for product-search.
+- [DEGIRO Reporting API](https://apis.io/apis/degiro/degiro-reporting-api/) — The reporting API from DEGIRO — 2 operation(s) for reporting.
+- [DEGIRO Settings API](https://apis.io/apis/degiro/degiro-settings-api/) — The settings API from DEGIRO — 4 operation(s) for settings.
+- [DEGIRO Trading API](https://apis.io/apis/degiro/degiro-trading-api/) — The trading API from DEGIRO — 4 operation(s) for trading.
 
-### Product Search API
+### Published properties
 
-Endpoint suite for discovering tradable instruments:
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Full-text search across all asset classes
-- Filter by exchange, index, product type
-- Retrieve product details: ISIN, currency, exchange, pricing metadata
-- Batch retrieval by product IDs
-- Asset classes: shares, ETFs, bonds, options, futures, warrants, leveraged products, investment funds, CFDs
+#### Agentic access (1)
 
-### Quotecast API (Real-Time Market Data)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Real-time streaming data via the vwd Quotecast protocol:
+- [Degiro Agentic Access](https://apis.io/agentic-access/degiro/degiro-agentic-access/)
 
-- Live ticker subscriptions for price, volume, bid/ask, OHLC
-- Chart data with multiple time resolutions
-- Historical price series
-- Products referenced by vwd_id or issueid
-- Connection resets every ~15 seconds; requires re-subscription
+#### JSON Schema (5)
 
-### Reporting API
+The data models the API reads and writes.
 
-Downloadable account reports and statements:
+- [DEGIRO Login](https://apis.io/schemas/degiro/degiro-login/)
+- [DEGIRO Order](https://apis.io/schemas/degiro/degiro-order/)
+- [DEGIRO Portfolio Position](https://apis.io/schemas/degiro/degiro-portfolio/)
+- [DEGIRO Product](https://apis.io/schemas/degiro/degiro-product/)
+- [DEGIRO Session](https://apis.io/schemas/degiro/degiro-session/)
 
-- Formats: CSV, HTML, PDF, XLS
-- Account statements, transaction records, order history
-- Portfolio snapshots and cash movement history
+#### JSON-LD (1)
 
-### News and Company Intelligence API
+Linked-data contexts for the provider's vocabulary.
 
-Company research and market intelligence via Refinitiv and vwd data:
+- [Degiro Context](https://apis.io/jsonld/degiro/degiro-context/)
 
-- Company news feeds
-- Company profiles and financial ratios
-- Income statements, balance sheets, cash flow statements
-- Analyst estimates and price targets
-- Corporate event agendas: earnings, dividends, IPOs, stock splits
+#### Vocabulary (1)
 
-## Pricing
+The provider's domain terms, defined.
 
-DEGIRO charges per-trade commissions with no monthly account fees, no inactivity fees, and no custody fees.
+- [DEGIRO Vocabulary](https://apis.io/vocabularies/degiro/degiro-vocabulary/)
 
-| Asset Class | Fee |
+#### Examples (4)
+
+Example requests and responses.
+
+- [Degiro Login Example](https://apis.io/examples/degiro/degiro-login-example/)
+- [Degiro Place Order Example](https://apis.io/examples/degiro/degiro-place-order-example/)
+- [Degiro Portfolio Example](https://apis.io/examples/degiro/degiro-portfolio-example/)
+- [Degiro Product Search Example](https://apis.io/examples/degiro/degiro-product-search-example/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [Unofficial Degiro config API](https://apis.io/collections/degiro/open-degiro-config-api/)
+- [Unofficial Degiro config login API](https://apis.io/collections/degiro/open-degiro-login-api/)
+- [Unofficial Degiro config pa API](https://apis.io/collections/degiro/open-degiro-pa-api/)
+- [Unofficial Degiro config product-search API](https://apis.io/collections/degiro/open-degiro-product-search-api/)
+- [Unofficial Degiro config reporting API](https://apis.io/collections/degiro/open-degiro-reporting-api/)
+- [Unofficial Degiro config settings API](https://apis.io/collections/degiro/open-degiro-settings-api/)
+- [Unofficial Degiro config trading API](https://apis.io/collections/degiro/open-degiro-trading-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [DEGIRO — jsonschema rules](https://apis.io/rules/degiro/degiro-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Degiro Authentication](https://apis.io/security/degiro/degiro-authentication/)
+- [Degiro Domain Security](https://apis.io/security/degiro/degiro-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/degiro/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/degiro/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/degiro/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.degiro.eu)
+- [Support](https://www.degiro.eu/contact)
+- [Blog](https://www.degiro.eu/investor-updates)
+- [Terms of service](https://www.degiro.eu/terms-conditions)
+- [Privacy policy](https://www.degiro.eu/privacy-policy)
+- [GitHub](https://github.com/degiro)
+
+## API Evangelist rating
+
+**Kin Score 26.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| Stocks (home exchange) | EUR 2-4.90 + EUR 1 handling |
-| Stocks (US markets) | EUR 2 + EUR 1 handling |
-| ETFs (Core Selection, Tradegate) | EUR 1 (first monthly trade per ETF free) |
-| ETFs (non-Core) | EUR 3 + EUR 1 handling |
-| Options | EUR 0.75/contract + EUR 1 handling |
-| Futures | EUR 0.50/contract + EUR 1 handling |
-| Bonds | EUR 2 + EUR 1 handling |
-| Currency conversion (auto) | 0.25% of transaction |
-| Margin financing | 3% per annum |
+| Discoverability | 66.1 |
+| Contract quality | 44.0 |
+| Contract governance | 9.8 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 11.8 |
 
-## Resources
+**Agent readiness 19.8** — agent-aware
 
-- Website: https://www.degiro.eu
-- Login: https://trader.degiro.nl/login
-- Support: https://www.degiro.eu/contact
-- Terms of Service: https://www.degiro.eu/terms-conditions
-- Community API (Python): https://github.com/Chavithra/degiro-connector
-- Community API (Python async): https://github.com/ohmajesticlama/degiroasync
-- Community API (TypeScript): https://github.com/icastillejogomez/degiro-api
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-## Important Disclaimer
+**Regulatory alignment 21.3** — Securities & Market Data
 
-DEGIRO does not provide or support an official API. The endpoints documented here are internal platform APIs discovered through reverse engineering. DEGIRO may change or block these endpoints without notice. Use of automated trading scripts may violate DEGIRO's Terms of Service and could result in account suspension. This catalog is provided for informational and research purposes only.
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/degiro/](https://apis.io/providers/degiro/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for DEGIRO: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/degiro/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
